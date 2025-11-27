@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Sunshine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse-sun {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                text-shadow: 
+                    0 0 20px rgba(251, 191, 36, 0.5),
+                    0 0 40px rgba(251, 146, 60, 0.3),
+                    0 0 60px rgba(251, 191, 36, 0.2);
+            }
+            50% {
+                text-shadow: 
+                    0 0 30px rgba(251, 191, 36, 0.8),
+                    0 0 60px rgba(251, 146, 60, 0.5),
+                    0 0 90px rgba(251, 191, 36, 0.3);
+            }
+        }
+
+        @keyframes floatTitle {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .spinning-sun {
+            animation: pulse-sun 8s ease-in-out infinite;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .fade-in-left {
+            animation: fadeInLeft 0.6s ease-out forwards;
+        }
+
+        .fade-in-right {
+            animation: fadeInRight 0.6s ease-out forwards;
+        }
+
+        .fade-in-scale {
+            animation: fadeInScale 0.6s ease-out forwards;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-item {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                135deg,
+                #fbbf24 0%,
+                #f59e0b 25%,
+                #fb923c 50%,
+                #ea580c 75%,
+                #fb923c 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease infinite, glowPulse 3s ease-in-out infinite, floatTitle 6s ease-in-out infinite;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            position: relative;
+            display: inline-block;
+            text-shadow: 
+                0 1px 0 #f59e0b,
+                0 2px 0 #fb923c,
+                0 3px 0 #ea580c,
+                0 4px 0 #dc2626,
+                0 5px 0 #b91c1c,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(251,191,36,.3),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 20px rgba(251,146,60,.4),
+                0 20px 40px rgba(251,191,36,.2);
+            transform-style: preserve-3d;
+            filter: drop-shadow(0 25px 50px rgba(251, 146, 60, 0.3));
+        }
+        
+        .gradient-text::before {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            background: linear-gradient(
+                135deg,
+                #92400e 0%,
+                #78350f 50%,
+                #451a03 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transform: translateZ(-50px) scale(1.01);
+            opacity: 0.6;
+            filter: blur(2px);
+        }
+        
+        .gradient-text::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+            background: linear-gradient(
+                180deg,
+                rgba(255,255,255,0.9) 0%,
+                rgba(255,255,255,0.4) 40%,
+                rgba(255,255,255,0) 60%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            mix-blend-mode: overlay;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-size: 10rem;
+            font-weight: 900;
+            line-height: 0.95;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 6rem;
+            }
+            h2 {
+                font-size: 1.875rem;
+            }
+            h3 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-zinc-900">
+    <!-- Spinning Sun Background -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden">
+        <div id="spinning-sun" class="spinning-sun absolute top-1/4 right-1/4 w-[600px] h-[600px] opacity-10">
+            <svg viewBox="0 0 200 200" class="w-full h-full">
+                <defs>
+                    <radialGradient id="sunGradient" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#FFF4E6" stop-opacity="1" />
+                        <stop offset="30%" stop-color="#FDB81E" stop-opacity="0.9" />
+                        <stop offset="60%" stop-color="#F59E0B" stop-opacity="0.7" />
+                        <stop offset="100%" stop-color="#D97706" stop-opacity="0.3" />
+                    </radialGradient>
+                    <radialGradient id="coreGradient" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#FFFBEB" stop-opacity="1" />
+                        <stop offset="50%" stop-color="#FEF3C7" stop-opacity="0.9" />
+                        <stop offset="100%" stop-color="#FDE68A" stop-opacity="0.7" />
+                    </radialGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                
+                <!-- Outer glow -->
+                <circle cx="100" cy="100" r="45" fill="url(#sunGradient)" opacity="0.4" filter="url(#glow)" />
+                
+                <!-- Sun core -->
+                <circle cx="100" cy="100" r="38" fill="url(#coreGradient)" filter="url(#glow)" />
+                
+                <!-- Primary sun rays (8 main directions) -->
+                <g stroke-linecap="round" filter="url(#glow)">
+                    <line x1="100" y1="50" x2="100" y2="18" stroke="#FDB81E" stroke-width="5" opacity="0.8" />
+                    <line x1="128" y1="62" x2="150" y2="45" stroke="#FDB81E" stroke-width="5" opacity="0.8" />
+                    <line x1="150" y1="100" x2="182" y2="100" stroke="#FDB81E" stroke-width="5" opacity="0.8" />
+                    <line x1="138" y1="138" x2="155" y2="155" stroke="#FDB81E" stroke-width="5" opacity="0.8" />
+                    <line x1="100" y1="150" x2="100" y2="182" stroke="#FDB81E" stroke-width="5" opacity="0.8" />
+                    <line x1="62" y1="138" x2="45" y2="155" stroke="#FDB81E" stroke-width="5" opacity="0.8" />
+                    <line x1="50" y1="100" x2="18" y2="100" stroke="#FDB81E" stroke-width="5" opacity="0.8" />
+                    <line x1="62" y1="62" x2="45" y2="45" stroke="#FDB81E" stroke-width="5" opacity="0.8" />
+                </g>
+                
+                <!-- Secondary rays (shorter, between main rays) -->
+                <g stroke-linecap="round" opacity="0.6">
+                    <line x1="114" y1="54" x2="122" y2="30" stroke="#F59E0B" stroke-width="3" />
+                    <line x1="146" y1="86" x2="170" y2="78" stroke="#F59E0B" stroke-width="3" />
+                    <line x1="146" y1="114" x2="170" y2="122" stroke="#F59E0B" stroke-width="3" />
+                    <line x1="114" y1="146" x2="122" y2="170" stroke="#F59E0B" stroke-width="3" />
+                    <line x1="86" y1="146" x2="78" y2="170" stroke="#F59E0B" stroke-width="3" />
+                    <line x1="54" y1="114" x2="30" y2="122" stroke="#F59E0B" stroke-width="3" />
+                    <line x1="54" y1="86" x2="30" y2="78" stroke="#F59E0B" stroke-width="3" />
+                    <line x1="86" y1="54" x2="78" y2="30" stroke="#F59E0B" stroke-width="3" />
+                </g>
+                
+                <!-- Inner decorative circle -->
+                <circle cx="100" cy="100" r="28" fill="none" stroke="#FBBF24" stroke-width="1.5" opacity="0.5" />
+            </svg>
+        </div>
+        
+        <!-- Floating decorative elements -->
+        <div class="parallax-layer-1 absolute top-[10%] left-[5%] w-32 h-32 rounded-full bg-gradient-to-br from-amber-100/30 to-orange-100/20 blur-2xl"></div>
+        <div class="parallax-layer-2 absolute top-[60%] left-[80%] w-48 h-48 rounded-full bg-gradient-to-br from-orange-100/20 to-amber-100/10 blur-3xl"></div>
+        <div class="parallax-layer-1 absolute top-[40%] left-[15%] w-24 h-24 rounded-full bg-gradient-to-br from-amber-200/20 to-orange-200/10 blur-xl"></div>
+        <div class="parallax-layer-3 absolute top-[80%] left-[60%] w-40 h-40 rounded-full bg-gradient-to-br from-orange-100/15 to-amber-100/10 blur-2xl"></div>
+        <div class="parallax-layer-2 absolute top-[25%] left-[70%] w-20 h-20 rounded-full bg-gradient-to-br from-amber-100/25 to-orange-100/15 blur-xl"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 px-6 py-32 md:py-48">
+        <div class="max-w-7xl mx-auto">
+            <div class="fade-in-up text-center space-y-12">
+                <h1 class="gradient-text max-w-6xl mx-auto py-8" style="font-size: clamp(3.5rem, 7vw, 8rem) !important;">
+                    Hello Sunshine
+                </h1>
+                
+                <p class="text-zinc-700 max-w-3xl mx-auto text-xl md:text-2xl">
+                    An intergenerational program connecting adults 60+ with young adults in their 20s to reduce loneliness, share learning, and build lasting belonging.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 justify-center pt-4">
+                    <button class="border-2 border-amber-600 text-amber-700 hover:bg-amber-50 rounded-full px-8 py-3 font-semibold transition-all">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Concept -->
+    <section class="relative z-10 px-6 py-20 bg-gradient-to-b from-transparent via-zinc-100/50 to-transparent">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-on-scroll fade-in-left space-y-6">
+                    <h2 class="text-amber-600">Why Hello Sunshine?</h2>
+                    <p class="text-zinc-700">
+                        Creates intentional opportunities for connection, learning, and wellness.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3 stagger-item" style="transition-delay: 0.1s">
+                            <span class="text-amber-600 font-bold text-lg">•</span>
+                            <div>
+                                <p class="text-zinc-700"><strong class="text-amber-700">Seniors bring:</strong> wisdom, mentorship, and spunk</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3 stagger-item" style="transition-delay: 0.2s">
+                            <span class="text-amber-600 font-bold text-lg">•</span>
+                            <div>
+                                <p class="text-zinc-700"><strong class="text-amber-700">Young adults bring:</strong> energy, fresh perspectives, tech skills</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3 stagger-item" style="transition-delay: 0.3s">
+                            <span class="text-amber-600 font-bold text-lg">•</span>
+                            <div>
+                                <p class="text-zinc-700"><strong class="text-amber-700">Together we create:</strong> mutual respect, belonging, and stronger communities</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+                        <p class="text-amber-800 italic">
+                            "Connection is why we're here; it is what gives purpose and meaning to our lives." - Brené Brown
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="animate-on-scroll fade-in-right">
+                    <div class="rounded-3xl overflow-hidden border border-amber-200 shadow-2xl bg-gradient-to-br from-amber-50 to-orange-50 p-12 flex items-center justify-center">
+                        <svg viewBox="0 0 200 200" class="w-full h-auto max-w-md animate-pulse">
+                            <defs>
+                                <radialGradient id="sunGradient2" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#FFF4E6" stop-opacity="1" />
+                                    <stop offset="30%" stop-color="#FDB81E" stop-opacity="0.9" />
+                                    <stop offset="60%" stop-color="#F59E0B" stop-opacity="0.7" />
+                                    <stop offset="100%" stop-color="#D97706" stop-opacity="0.3" />
+                                </radialGradient>
+                                <radialGradient id="coreGradient2" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#FFFBEB" stop-opacity="1" />
+                                    <stop offset="50%" stop-color="#FEF3C7" stop-opacity="0.9" />
+                                    <stop offset="100%" stop-color="#FDE68A" stop-opacity="0.7" />
+                                </radialGradient>
+                                <filter id="glow2">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 100 100"
+                                    to="360 100 100"
+                                    dur="30s"
+                                    repeatCount="indefinite"/>
+                            </defs>
+                            
+                            <!-- Outer glow -->
+                            <circle cx="100" cy="100" r="45" fill="url(#sunGradient2)" opacity="0.6" filter="url(#glow2)">
+                                <animate attributeName="opacity" values="0.6;0.8;0.6" dur="3s" repeatCount="indefinite"/>
+                            </circle>
+                            
+                            <!-- Sun core -->
+                            <circle cx="100" cy="100" r="38" fill="url(#coreGradient2)" filter="url(#glow2)">
+                                <animate attributeName="r" values="38;40;38" dur="2s" repeatCount="indefinite"/>
+                            </circle>
+                            
+                            <!-- Primary sun rays (8 main directions) -->
+                            <g stroke-linecap="round" filter="url(#glow2)">
+                                <line x1="100" y1="50" x2="100" y2="18" stroke="#FDB81E" stroke-width="5" opacity="0.9" />
+                                <line x1="128" y1="62" x2="150" y2="45" stroke="#FDB81E" stroke-width="5" opacity="0.9" />
+                                <line x1="150" y1="100" x2="182" y2="100" stroke="#FDB81E" stroke-width="5" opacity="0.9" />
+                                <line x1="138" y1="138" x2="155" y2="155" stroke="#FDB81E" stroke-width="5" opacity="0.9" />
+                                <line x1="100" y1="150" x2="100" y2="182" stroke="#FDB81E" stroke-width="5" opacity="0.9" />
+                                <line x1="62" y1="138" x2="45" y2="155" stroke="#FDB81E" stroke-width="5" opacity="0.9" />
+                                <line x1="50" y1="100" x2="18" y2="100" stroke="#FDB81E" stroke-width="5" opacity="0.9" />
+                                <line x1="62" y1="62" x2="45" y2="45" stroke="#FDB81E" stroke-width="5" opacity="0.9" />
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 100 100"
+                                    to="360 100 100"
+                                    dur="30s"
+                                    repeatCount="indefinite"/>
+                            </g>
+                            
+                            <!-- Secondary rays (shorter, between main rays) -->
+                            <g stroke-linecap="round" opacity="0.7">
+                                <line x1="114" y1="54" x2="122" y2="30" stroke="#F59E0B" stroke-width="3" />
+                                <line x1="146" y1="86" x2="170" y2="78" stroke="#F59E0B" stroke-width="3" />
+                                <line x1="146" y1="114" x2="170" y2="122" stroke="#F59E0B" stroke-width="3" />
+                                <line x1="114" y1="146" x2="122" y2="170" stroke="#F59E0B" stroke-width="3" />
+                                <line x1="86" y1="146" x2="78" y2="170" stroke="#F59E0B" stroke-width="3" />
+                                <line x1="54" y1="114" x2="30" y2="122" stroke="#F59E0B" stroke-width="3" />
+                                <line x1="54" y1="86" x2="30" y2="78" stroke="#F59E0B" stroke-width="3" />
+                                <line x1="86" y1="54" x2="78" y2="30" stroke="#F59E0B" stroke-width="3" />
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 100 100"
+                                    to="-360 100 100"
+                                    dur="20s"
+                                    repeatCount="indefinite"/>
+                            </g>
+                            
+                            <!-- Inner decorative circle -->
+                            <circle cx="100" cy="100" r="28" fill="none" stroke="#FBBF24" stroke-width="1.5" opacity="0.6">
+                                <animate attributeName="r" values="28;30;28" dur="2.5s" repeatCount="indefinite"/>
+                            </circle>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Simple Habits -->
+    <section class="relative z-10 px-6 py-20">
+        <div class="max-w-6xl mx-auto">
+            <div class="animate-on-scroll fade-in-up text-center mb-16">
+                <h2 class="text-amber-600 mb-4 text-4xl md:text-5xl font-bold">The Sunshine Includes</h2>
+                <p class="text-zinc-700 max-w-2xl mx-auto">
+                    A comprehensive program designed to foster connection, learning, and well-being across generations.
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="animate-on-scroll fade-in-up bg-white p-10 rounded-3xl border border-zinc-200 shadow-sm">
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4 stagger-item" style="transition-delay: 0.1s">
+                            <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-amber-700 text-xl font-semibold mb-1">Weekly check-ins via call or text</h3>
+                                <p class="text-zinc-600">Stay connected with regular communication to reduce isolation and maintain meaningful contact.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start gap-4 stagger-item" style="transition-delay: 0.2s">
+                            <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-amber-700 text-xl font-semibold mb-1">Workshops</h3>
+                                <p class="text-zinc-600">Engaging learning opportunities where both generations share knowledge and skills.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start gap-4 stagger-item" style="transition-delay: 0.3s">
+                            <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-amber-700 text-xl font-semibold mb-1">Wellness activities</h3>
+                                <p class="text-zinc-600">Physical and mental health activities designed for all ages and abilities.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start gap-4 stagger-item" style="transition-delay: 0.4s">
+                            <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-amber-700 text-xl font-semibold mb-1">Entertainment</h3>
+                                <p class="text-zinc-600">Fun social events and activities that bring joy and laughter to our community.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start gap-4 stagger-item" style="transition-delay: 0.5s">
+                            <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-amber-700 text-xl font-semibold mb-1">A shared meal</h3>
+                                <p class="text-zinc-600">Breaking bread together to build bonds and create memorable conversations.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hypothesis Section -->
+    <section class="relative z-10 px-6 py-20 bg-gradient-to-b from-transparent via-zinc-100/50 to-transparent">
+        <div class="max-w-4xl mx-auto">
+            <div class="animate-on-scroll fade-in-up text-center mb-12">
+                <h2 class="text-amber-600 mb-4 text-4xl md:text-5xl font-bold">Share Your Story</h2>
+                <p class="text-zinc-700 max-w-2xl mx-auto">
+                    Have thoughts on intergenerational connection? We'd love to hear your perspective on how bringing together adults 60+ and young adults in their 20s can reduce loneliness.
+                </p>
+            </div>
+            
+            <div class="animate-on-scroll fade-in-up bg-white border border-zinc-200 rounded-3xl p-8 shadow-lg">
+                <form class="space-y-8" id="hypothesisForm">
+                    <!-- Question 1 -->
+                    <div class="space-y-4">
+                        <label class="block text-amber-700 font-semibold text-lg">1) Are you open to participating in or supporting intergenerational connections between older adults and young adults?</label>
+                        <div class="flex gap-6">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="question1" value="yes" class="w-4 h-4 text-amber-600 focus:ring-amber-500" required />
+                                <span class="text-zinc-700">Yes</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="question1" value="no" class="w-4 h-4 text-amber-600 focus:ring-amber-500" />
+                                <span class="text-zinc-700">No</span>
+                            </label>
+                        </div>
+                        
+                        <div>
+                            <label for="question1optional" class="block text-zinc-600 text-sm mb-2">Optional: What interests you most about intergenerational connection?</label>
+                            <textarea 
+                                id="question1optional" 
+                                name="question1optional"
+                                rows="3"
+                                placeholder="Share your thoughts..."
+                                class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all resize-none"
+                            ></textarea>
+                        </div>
+                    </div>
+                    
+                    <!-- Question 2 -->
+                    <div class="space-y-4">
+                        <label class="block text-amber-700 font-semibold text-lg">2) Do you believe that bringing older adults and young adults together can help reduce loneliness and strengthen community belonging?</label>
+                        <div class="flex gap-6">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="question2" value="yes" class="w-4 h-4 text-amber-600 focus:ring-amber-500" required />
+                                <span class="text-zinc-700">Yes</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="question2" value="no" class="w-4 h-4 text-amber-600 focus:ring-amber-500" />
+                                <span class="text-zinc-700">No</span>
+                            </label>
+                        </div>
+                        
+                        <div>
+                            <label for="question2optional" class="block text-zinc-600 text-sm mb-2">Optional: Why or why not?</label>
+                            <textarea 
+                                id="question2optional" 
+                                name="question2optional"
+                                rows="3"
+                                placeholder="Share your thoughts..."
+                                class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all resize-none"
+                            ></textarea>
+                        </div>
+                    </div>
+                    
+                    <button 
+                        type="submit"
+                        class="w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white rounded-full px-8 py-3 font-semibold shadow-lg shadow-amber-500/20 transition-all"
+                    >
+                        Share Your Thoughts
+                    </button>
+                </form>
+                
+                <div id="submissionMessage" class="hidden mt-6 p-4 bg-amber-50 border border-amber-200 rounded-xl text-amber-800 text-center">
+                    Thank you for sharing your thoughts! Your insights help us build stronger intergenerational connections.
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-zinc-600 text-base">
+                    Your submission helps us understand community expectations and supports our research on reducing generational barriers.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Break -->
+    <section class="relative z-10 px-6 py-20">
+        <div class="max-w-4xl mx-auto">
+            <div class="animate-on-scroll fade-in-scale rounded-3xl overflow-hidden border border-amber-200 shadow-2xl">
+                <video
+                    autoplay
+                    loop
+                    muted
+                    playsinline
+                    class="w-full h-full object-cover aspect-video"
+                >
+                    <source src="Sunrise video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 px-6 py-12 border-t border-zinc-200">
+        <div class="max-w-6xl mx-auto text-center space-y-4">
+            <p class="text-zinc-600">
+                Believing in what's possible when generations connect.
+            </p>
+            <p class="text-zinc-500 text-sm">
+                © 2025 Hello Sunshine Project. Bringing light to dark spaces.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced parallax effect for sun and floating elements
+        const spinningSun = document.getElementById('spinning-sun');
+        const parallaxLayer1 = document.querySelectorAll('.parallax-layer-1');
+        const parallaxLayer2 = document.querySelectorAll('.parallax-layer-2');
+        const parallaxLayer3 = document.querySelectorAll('.parallax-layer-3');
+        let ticking = false;
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    const scrolled = window.pageYOffset;
+                    const sunParallaxSpeed = 0.3;
+                    const sunRotationSpeed = 0.5;
+                    
+                    // Animate sun
+                    if (spinningSun) {
+                        const yOffset = scrolled * sunParallaxSpeed;
+                        const rotation = scrolled * sunRotationSpeed;
+                        spinningSun.style.transform = `translateY(${yOffset}px) rotate(${rotation}deg)`;
+                    }
+                    
+                    // Animate floating elements at different speeds
+                    parallaxLayer1.forEach(el => {
+                        const yOffset = scrolled * 0.15;
+                        el.style.transform = `translateY(${yOffset}px)`;
+                    });
+                    
+                    parallaxLayer2.forEach(el => {
+                        const yOffset = scrolled * 0.25;
+                        el.style.transform = `translateY(${yOffset}px)`;
+                    });
+                    
+                    parallaxLayer3.forEach(el => {
+                        const yOffset = scrolled * 0.1;
+                        el.style.transform = `translateY(${yOffset}px)`;
+                    });
+                    
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all elements with animate-on-scroll class
+        const animatedElements = document.querySelectorAll('.animate-on-scroll');
+        animatedElements.forEach(el => observer.observe(el));
+        
+        // Observe all stagger-item elements
+        const staggerItems = document.querySelectorAll('.stagger-item');
+        staggerItems.forEach(el => observer.observe(el));
+
+        // Smooth scroll for Learn More button
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Learn More')) {
+                button.addEventListener('click', function() {
+                    const conceptSection = document.querySelector('section:nth-of-type(2)');
+                    if (conceptSection) {
+                        conceptSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+        });
+
+        // Handle hypothesis form submission
+        const hypothesisForm = document.getElementById('hypothesisForm');
+        const submissionMessage = document.getElementById('submissionMessage');
+        
+        if (hypothesisForm) {
+            hypothesisForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(hypothesisForm);
+                const data = {
+                    name: formData.get('name') || 'Anonymous',
+                    hypothesis: formData.get('hypothesis'),
+                    optimism: formData.get('optimism'),
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Store in localStorage (in a real app, this would go to a server)
+                const submissions = JSON.parse(localStorage.getItem('hypothesisSubmissions') || '[]');
+                submissions.push(data);
+                localStorage.setItem('hypothesisSubmissions', JSON.stringify(submissions));
+                
+                // Show success message
+                submissionMessage.classList.remove('hidden');
+                hypothesisForm.reset();
+                
+                // Scroll to message
+                submissionMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    submissionMessage.classList.add('hidden');
+                }, 5000);
+                
+                console.log('Thoughts submitted:', data);
+            });
+        }
+    </script>
+</body>
+</html>
