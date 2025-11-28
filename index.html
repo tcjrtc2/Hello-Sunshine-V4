@@ -389,8 +389,17 @@
                 </div>
                 
                 <div class="animate-on-scroll fade-in-right">
-                    <div class="rounded-3xl overflow-hidden border border-amber-200 shadow-2xl bg-gradient-to-br from-amber-50 to-orange-50 p-12 flex items-center justify-center">
-                        <svg viewBox="0 0 200 200" class="w-full h-auto max-w-md animate-pulse">
+                    <div class="rounded-3xl overflow-hidden border border-amber-200 shadow-2xl bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 p-12 flex items-center justify-center relative">
+                        <!-- Animated background particles -->
+                        <div class="absolute inset-0 overflow-hidden opacity-30">
+                            <div class="absolute w-1 h-1 bg-amber-300 rounded-full animate-pulse" style="top: 20%; left: 15%; animation-duration: 3s;"></div>
+                            <div class="absolute w-1 h-1 bg-orange-300 rounded-full animate-pulse" style="top: 40%; left: 80%; animation-duration: 2.5s; animation-delay: 0.5s;"></div>
+                            <div class="absolute w-0.5 h-0.5 bg-yellow-300 rounded-full animate-pulse" style="top: 60%; left: 25%; animation-duration: 4s; animation-delay: 1s;"></div>
+                            <div class="absolute w-1 h-1 bg-amber-400 rounded-full animate-pulse" style="top: 75%; left: 70%; animation-duration: 3.5s; animation-delay: 1.5s;"></div>
+                            <div class="absolute w-0.5 h-0.5 bg-orange-200 rounded-full animate-pulse" style="top: 30%; left: 50%; animation-duration: 2.8s; animation-delay: 0.8s;"></div>
+                        </div>
+                        
+                        <svg viewBox="0 0 200 200" class="w-full h-auto max-w-md relative z-10">
                             <defs>
                                 <radialGradient id="sunGradient2" cx="50%" cy="50%" r="50%">
                                     <stop offset="0%" stop-color="#FFF4E6" stop-opacity="1" />
@@ -399,47 +408,164 @@
                                     <stop offset="100%" stop-color="#D97706" stop-opacity="0.3" />
                                 </radialGradient>
                                 <radialGradient id="coreGradient2" cx="50%" cy="50%" r="50%">
-                                    <stop offset="0%" stop-color="#FFFBEB" stop-opacity="1" />
-                                    <stop offset="50%" stop-color="#FEF3C7" stop-opacity="0.9" />
-                                    <stop offset="100%" stop-color="#FDE68A" stop-opacity="0.7" />
+                                    <stop offset="0%" stop-color="#FFFBEB" stop-opacity="1">
+                                        <animate attributeName="stop-color" values="#FFFBEB;#FFFFFF;#FFFBEB" dur="3s" repeatCount="indefinite"/>
+                                    </stop>
+                                    <stop offset="50%" stop-color="#FEF3C7" stop-opacity="0.9">
+                                        <animate attributeName="stop-color" values="#FEF3C7;#FDE68A;#FEF3C7" dur="3s" repeatCount="indefinite"/>
+                                    </stop>
+                                    <stop offset="100%" stop-color="#FDE68A" stop-opacity="0.7">
+                                        <animate attributeName="stop-color" values="#FDE68A;#FBBF24;#FDE68A" dur="3s" repeatCount="indefinite"/>
+                                    </stop>
                                 </radialGradient>
-                                <filter id="glow2">
-                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <radialGradient id="innerGlow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8" />
+                                    <stop offset="70%" stop-color="#FEF3C7" stop-opacity="0.3" />
+                                    <stop offset="100%" stop-color="#FDE68A" stop-opacity="0" />
+                                </radialGradient>
+                                <radialGradient id="coronaGradient" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#FDB81E" stop-opacity="0.1" />
+                                    <stop offset="50%" stop-color="#F59E0B" stop-opacity="0.2" />
+                                    <stop offset="100%" stop-color="#D97706" stop-opacity="0" />
+                                </radialGradient>
+                                <filter id="glow2" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+                                    <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1.5 0" result="intensify"/>
+                                    <feMerge>
+                                        <feMergeNode in="intensify"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                                <filter id="softGlow">
+                                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
                                     <feMerge>
                                         <feMergeNode in="coloredBlur"/>
                                         <feMergeNode in="SourceGraphic"/>
                                     </feMerge>
                                 </filter>
+                                <filter id="ultraSoftGlow">
+                                    <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            
+                            <!-- Ultra outer corona -->
+                            <circle cx="100" cy="100" r="70" fill="url(#coronaGradient)" opacity="0.2" filter="url(#ultraSoftGlow)">
+                                <animate attributeName="opacity" values="0.2;0.35;0.2" dur="6s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                <animate attributeName="r" values="70;75;70" dur="6s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                            </circle>
+                            
+            <!-- Outer atmospheric glow -->
+            <circle cx="100" cy="100" r="55" fill="url(#sunGradient2)" opacity="0.3" filter="url(#softGlow)">
+                <animate attributeName="opacity" values="0.3;0.5;0.3" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                <animate attributeName="r" values="55;58;55" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+            </circle>            <!-- Middle glow layer -->
+            <circle cx="100" cy="100" r="45" fill="url(#sunGradient2)" opacity="0.6" filter="url(#glow2)">
+                <animate attributeName="opacity" values="0.6;0.8;0.6" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                <animate attributeName="r" values="45;47;45" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+            </circle>            <!-- Sun core with enhanced animation -->
+            <circle cx="100" cy="100" r="38" fill="url(#coreGradient2)" filter="url(#glow2)">
+                <animate attributeName="r" values="38;40;39;40;38" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"/>
+            </circle>            <!-- Inner highlight -->
+            <circle cx="100" cy="100" r="30" fill="url(#innerGlow)" opacity="0.8">
+                <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+            </circle>                            <!-- Enhanced sparkle effects -->
+                            <circle cx="90" cy="90" r="2" fill="#FFFFFF" opacity="0">
+                                <animate attributeName="opacity" values="0;1;0" dur="3s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                <animate attributeName="r" values="2;2.5;2" dur="3s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                            </circle>
+                            <circle cx="110" cy="95" r="1.5" fill="#FFFFFF" opacity="0">
+                                <animate attributeName="opacity" values="0;0.8;0" dur="3.5s" begin="0.5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                <animate attributeName="r" values="1.5;2;1.5" dur="3.5s" begin="0.5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                            </circle>
+                            <circle cx="105" cy="110" r="2" fill="#FFFFFF" opacity="0">
+                                <animate attributeName="opacity" values="0;1;0" dur="4s" begin="1s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                <animate attributeName="r" values="2;2.5;2" dur="4s" begin="1s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                            </circle>
+                            <circle cx="95" cy="105" r="1.2" fill="#FEF3C7" opacity="0">
+                                <animate attributeName="opacity" values="0;0.7;0" dur="3.2s" begin="0.3s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                            </circle>
+                            <circle cx="108" cy="102" r="1" fill="#FDE68A" opacity="0">
+                                <animate attributeName="opacity" values="0;0.6;0" dur="3.8s" begin="0.7s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                            </circle>
+                            
+                            <!-- Tertiary tiny rays (extra detail) -->
+                            <g stroke-linecap="round" opacity="0.4">
+                                <line x1="107" y1="52" x2="107" y2="24" stroke="#FDE68A" stroke-width="2">
+                                    <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                </line>
+                                <line x1="135" y1="72" x2="155" y2="58" stroke="#FDE68A" stroke-width="2">
+                                    <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" begin="0.4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                </line>
+                                <line x1="148" y1="107" x2="176" y2="107" stroke="#FDE68A" stroke-width="2">
+                                    <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" begin="0.8s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                </line>
+                                <line x1="128" y1="128" x2="142" y2="142" stroke="#FDE68A" stroke-width="2">
+                                    <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" begin="1.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                </line>
+                                <line x1="93" y1="148" x2="93" y2="176" stroke="#FDE68A" stroke-width="2">
+                                    <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" begin="1.6s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                </line>
+                                <line x1="72" y1="128" x2="58" y2="142" stroke="#FDE68A" stroke-width="2">
+                                    <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" begin="2s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                </line>
+                                <line x1="52" y1="93" x2="24" y2="93" stroke="#FDE68A" stroke-width="2">
+                                    <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" begin="2.4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                </line>
+                                <line x1="72" y1="65" x2="58" y2="52" stroke="#FDE68A" stroke-width="2">
+                                    <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" begin="2.8s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                </line>
                                 <animateTransform
                                     attributeName="transform"
                                     attributeType="XML"
                                     type="rotate"
                                     from="0 100 100"
                                     to="360 100 100"
-                                    dur="30s"
+                                    dur="40s"
                                     repeatCount="indefinite"/>
-                            </defs>
+                            </g>
                             
-                            <!-- Outer glow -->
-                            <circle cx="100" cy="100" r="45" fill="url(#sunGradient2)" opacity="0.6" filter="url(#glow2)">
-                                <animate attributeName="opacity" values="0.6;0.8;0.6" dur="3s" repeatCount="indefinite"/>
-                            </circle>
-                            
-                            <!-- Sun core -->
-                            <circle cx="100" cy="100" r="38" fill="url(#coreGradient2)" filter="url(#glow2)">
-                                <animate attributeName="r" values="38;40;38" dur="2s" repeatCount="indefinite"/>
-                            </circle>
-                            
-                            <!-- Primary sun rays (8 main directions) -->
+                            <!-- Primary sun rays (8 main directions) with enhanced animation -->
                             <g stroke-linecap="round" filter="url(#glow2)">
-                                <line x1="100" y1="50" x2="100" y2="18" stroke="#FDB81E" stroke-width="5" opacity="0.9" />
-                                <line x1="128" y1="62" x2="150" y2="45" stroke="#FDB81E" stroke-width="5" opacity="0.9" />
-                                <line x1="150" y1="100" x2="182" y2="100" stroke="#FDB81E" stroke-width="5" opacity="0.9" />
-                                <line x1="138" y1="138" x2="155" y2="155" stroke="#FDB81E" stroke-width="5" opacity="0.9" />
-                                <line x1="100" y1="150" x2="100" y2="182" stroke="#FDB81E" stroke-width="5" opacity="0.9" />
-                                <line x1="62" y1="138" x2="45" y2="155" stroke="#FDB81E" stroke-width="5" opacity="0.9" />
-                                <line x1="50" y1="100" x2="18" y2="100" stroke="#FDB81E" stroke-width="5" opacity="0.9" />
-                                <line x1="62" y1="62" x2="45" y2="45" stroke="#FDB81E" stroke-width="5" opacity="0.9" />
+                                <line x1="100" y1="50" x2="100" y2="18" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" repeatCount="indefinite"/>
+                                    <animate attributeName="y2" values="18;15;18" dur="2s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="128" y1="62" x2="150" y2="45" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="0.25s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="0.25s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="150" y1="100" x2="182" y2="100" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="x2" values="182;185;182" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="138" y1="138" x2="155" y2="155" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="0.75s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="0.75s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="100" y1="150" x2="100" y2="182" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="1s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="1s" repeatCount="indefinite"/>
+                                    <animate attributeName="y2" values="182;185;182" dur="2s" begin="1s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="62" y1="138" x2="45" y2="155" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="1.25s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="1.25s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="50" y1="100" x2="18" y2="100" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="x2" values="18;15;18" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="62" y1="62" x2="45" y2="45" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="1.75s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="1.75s" repeatCount="indefinite"/>
+                                </line>
                                 <animateTransform
                                     attributeName="transform"
                                     attributeType="XML"
@@ -452,14 +578,38 @@
                             
                             <!-- Secondary rays (shorter, between main rays) -->
                             <g stroke-linecap="round" opacity="0.7">
-                                <line x1="114" y1="54" x2="122" y2="30" stroke="#F59E0B" stroke-width="3" />
-                                <line x1="146" y1="86" x2="170" y2="78" stroke="#F59E0B" stroke-width="3" />
-                                <line x1="146" y1="114" x2="170" y2="122" stroke="#F59E0B" stroke-width="3" />
-                                <line x1="114" y1="146" x2="122" y2="170" stroke="#F59E0B" stroke-width="3" />
-                                <line x1="86" y1="146" x2="78" y2="170" stroke="#F59E0B" stroke-width="3" />
-                                <line x1="54" y1="114" x2="30" y2="122" stroke="#F59E0B" stroke-width="3" />
-                                <line x1="54" y1="86" x2="30" y2="78" stroke="#F59E0B" stroke-width="3" />
-                                <line x1="86" y1="54" x2="78" y2="30" stroke="#F59E0B" stroke-width="3" />
+                                <line x1="114" y1="54" x2="122" y2="30" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="3;4;3" dur="2.5s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="146" y1="86" x2="170" y2="78" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="0.3s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="3;4;3" dur="2.5s" begin="0.3s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="146" y1="114" x2="170" y2="122" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="3;4;3" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="114" y1="146" x2="122" y2="170" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="0.9s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="3;4;3" dur="2.5s" begin="0.9s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="86" y1="146" x2="78" y2="170" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="1.2s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="3;4;3" dur="2.5s" begin="1.2s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="54" y1="114" x2="30" y2="122" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="1.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="3;4;3" dur="2.5s" begin="1.5s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="54" y1="86" x2="30" y2="78" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="1.8s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="3;4;3" dur="2.5s" begin="1.8s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="86" y1="54" x2="78" y2="30" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="2.1s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="3;4;3" dur="2.5s" begin="2.1s" repeatCount="indefinite"/>
+                                </line>
                                 <animateTransform
                                     attributeName="transform"
                                     attributeType="XML"
@@ -470,9 +620,95 @@
                                     repeatCount="indefinite"/>
                             </g>
                             
-                            <!-- Inner decorative circle -->
+                            <!-- Inner decorative circles with enhanced detail -->
+                            <circle cx="100" cy="100" r="28" fill="none" stroke="#FBBF24" stroke-width="1.5" opacity="0.6">
+                                <animate attributeName="r" values="28;30;28" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                <animate attributeName="opacity" values="0.6;0.8;0.6" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                            </circle>
+                            <circle cx="100" cy="100" r="20" fill="none" stroke="#FEF3C7" stroke-width="1" opacity="0.4">
+                                <animate attributeName="r" values="20;22;20" dur="4.5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4.5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                            </circle>
+                            <circle cx="100" cy="100" r="34" fill="none" stroke="#F59E0B" stroke-width="1" opacity="0.3" stroke-dasharray="4 6">
+                                <animate attributeName="r" values="34;36;34" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                <animate attributeName="opacity" values="0.3;0.5;0.3" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 100 100"
+                                    to="360 100 100"
+                                    dur="15s"
+                                    repeatCount="indefinite"/>
+                            </circle>
+                        </svg>
+                    </div>
+                </div>
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="1.25s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="1.25s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="50" y1="100" x2="18" y2="100" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="62" y1="62" x2="45" y2="45" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="1.75s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="1.75s" repeatCount="indefinite"/>
+                                </line>
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 100 100"
+                                    to="360 100 100"
+                                    dur="30s"
+                                    repeatCount="indefinite"/>
+                            </g>
+                            
+                            <!-- Secondary rays (shorter, between main rays) -->
+                            <g stroke-linecap="round" opacity="0.7">
+                                <line x1="114" y1="54" x2="122" y2="30" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="146" y1="86" x2="170" y2="78" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="0.3s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="146" y1="114" x2="170" y2="122" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="114" y1="146" x2="122" y2="170" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="0.9s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="86" y1="146" x2="78" y2="170" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="1.2s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="54" y1="114" x2="30" y2="122" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="1.5s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="54" y1="86" x2="30" y2="78" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="1.8s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="86" y1="54" x2="78" y2="30" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="2.1s" repeatCount="indefinite"/>
+                                </line>
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 100 100"
+                                    to="-360 100 100"
+                                    dur="20s"
+                                    repeatCount="indefinite"/>
+                            </g>
+                            
+                            <!-- Inner decorative circles -->
                             <circle cx="100" cy="100" r="28" fill="none" stroke="#FBBF24" stroke-width="1.5" opacity="0.6">
                                 <animate attributeName="r" values="28;30;28" dur="2.5s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.6;0.8;0.6" dur="2.5s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="100" cy="100" r="20" fill="none" stroke="#FEF3C7" stroke-width="1" opacity="0.4">
+                                <animate attributeName="r" values="20;22;20" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.4;0.6;0.4" dur="3s" repeatCount="indefinite"/>
                             </circle>
                         </svg>
                     </div>
