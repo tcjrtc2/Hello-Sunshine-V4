@@ -689,14 +689,9 @@
                     </div>
                     
                     <div class="glass-card-dark border border-amber-200 rounded-2xl p-6 card-glow">
-                        <div class="flex items-start gap-3">
-                            <svg class="w-8 h-8 text-amber-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                            </svg>
-                            <p class="text-amber-800 italic font-medium">
-                                "Connection is why we're here; it is what gives purpose and meaning to our lives." - Brené Brown
-                            </p>
-                        </div>
+                        <p class="text-amber-800 italic font-medium text-center">
+                            "Connection is why we're here; it is what gives purpose and meaning to our lives." <span class="whitespace-nowrap">- Brené Brown</span>
+                        </p>
                     </div>
                 </div>
                 
@@ -1266,14 +1261,53 @@
 
     <!-- Footer -->
     <footer class="relative z-10 px-6 py-12 border-t border-zinc-200">
-        <div class="max-w-6xl mx-auto text-center space-y-4">
-            <p class="text-zinc-600">
-                Believing in what's possible when generations connect.
-            </p>
-            <p class="text-zinc-500 text-sm">
-                © 2025 Hello Sunshine Project. Believing in possibilities when generations connect.
-            </p>
-            <p class="text-zinc-400 text-sm mt-2">
+        <div class="max-w-6xl mx-auto space-y-8">
+            <!-- Main Footer Message -->
+            <div class="text-center space-y-4">
+                <p class="text-zinc-600">
+                    Believing in what's possible when generations connect.
+                </p>
+                <p class="text-zinc-500 text-sm">
+                    © 2025 Hello Sunshine Project. Believing in possibilities when generations connect.
+                </p>
+                <p class="text-sm">
+                    <a href="mailto:hellosunshineproject@gmail.com" class="text-amber-600 hover:text-amber-700 font-medium transition-colors inline-flex items-center gap-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        hellosunshineproject@gmail.com
+                    </a>
+                </p>
+            </div>
+            
+            <!-- Fiduciary Sponsor Section -->
+            <div class="glass-card border border-amber-100 rounded-2xl p-6 max-w-3xl mx-auto">
+                <h3 class="text-amber-700 font-semibold text-lg mb-3 text-center">Fiduciary Sponsor</h3>
+                <div class="text-center space-y-2">
+                    <p class="text-zinc-700 font-semibold">Dr. Olivia J. Newby, DNP, FNP-BC, CDCES, FAANP</p>
+                    <p class="text-zinc-600">President, Healthy Living Center Norfolk</p>
+                    <p class="text-zinc-600">Founder of SEEDS to Healthy Living, LLC</p>
+                    <div class="flex flex-wrap items-center justify-center gap-3 mt-4 text-sm">
+                        <a href="mailto:newby.hlc@gmail.com" class="text-amber-600 hover:text-amber-700 font-medium transition-colors flex items-center gap-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            newby.hlc@gmail.com
+                        </a>
+                        <span class="text-zinc-400">|</span>
+                        <a href="https://www.newbyseeds.com/#/" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:text-amber-700 font-medium transition-colors">
+                            www.newbyseeds.com
+                        </a>
+                        <span class="text-zinc-400">|</span>
+                        <a href="http://www.hlcnorfolk.com/" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:text-amber-700 font-medium transition-colors">
+                            www.hlcnorfolk.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Website Credit -->
+            <p class="text-zinc-400 text-sm text-center">
                 Website made by <a href="https://bitsandblueprints.com/" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:text-amber-700 font-medium transition-colors">bits & blueprints</a> | <a href="tel:757-218-4659" class="text-amber-600 hover:text-amber-700 font-medium transition-colors">757-218-4659</a>
             </p>
         </div>
@@ -1383,7 +1417,15 @@
         const depthLayerNear = document.querySelectorAll('.depth-layer-near');
         let ticking = false;
         let lastScrollY = 0;
-        const scrollThreshold = 2; // Only update if scrolled more than 2px
+        const scrollThreshold = 1; // Reduced threshold for smoother updates
+        
+        // Add smooth transitions to parallax elements
+        [spinningSun, ...parallaxLayer1, ...parallaxLayer2, ...parallaxLayer3, 
+         ...depthLayerFar, ...depthLayerMid, ...depthLayerNear].forEach(el => {
+            if (el) {
+                el.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease-out, filter 0.3s ease-out';
+            }
+        });
 
         window.addEventListener('scroll', function() {
             const currentScrollY = window.pageYOffset;
