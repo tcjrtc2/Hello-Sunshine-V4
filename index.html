@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <style>
         @keyframes spin-slow {
             from { transform: rotate(0deg); }
@@ -1271,11 +1273,11 @@
                     © 2025 Hello Sunshine Project. Believing in possibilities when generations connect.
                 </p>
                 <p class="text-sm">
-                    <a href="mailto:hellosunshineproject26@gmail.com" class="text-amber-600 hover:text-amber-700 font-medium transition-colors inline-flex items-center gap-1">
+                    <a href="mailto:hellosunshineproject@gmail.com" class="text-amber-600 hover:text-amber-700 font-medium transition-colors inline-flex items-center gap-1">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                         </svg>
-                        hellosunshineproject26@gmail.com
+                        hellosunshineproject@gmail.com
                     </a>
                 </p>
             </div>
@@ -1552,6 +1554,13 @@
             }
         });
 
+        // Initialize EmailJS
+        (function() {
+            emailjs.init({
+                publicKey: 'CRY9t7KxoT1lJ5RjG'
+            });
+        })();
+
         // Handle hypothesis form submission
         const hypothesisForm = document.getElementById('hypothesisForm');
         const submissionMessage = document.getElementById('submissionMessage');
@@ -1573,32 +1582,67 @@
                     timestamp: new Date().toISOString()
                 };
                 
-                // Store in localStorage (in a real app, this would go to a server)
-                const submissions = JSON.parse(localStorage.getItem('hypothesisSubmissions') || '[]');
-                submissions.push(data);
-                localStorage.setItem('hypothesisSubmissions', JSON.stringify(submissions));
+                // Prepare EmailJS template parameters
+                const templateParams = {
+                    name: data.contactName || 'Anonymous',
+                    q1_answer: data.question1 || 'Not answered',
+                    q1_optional: data.question1optional || 'Not provided',
+                    q2_answer: data.question2 || 'Not answered',
+                    q2_optional: data.question2optional || 'Not provided',
+                    contact_name: data.contactName || 'Not provided',
+                    contact_email: data.contactEmail || 'Not provided',
+                    contact_phone: data.contactPhone || 'Not provided'
+                };
                 
-                // Show success message with animation
-                submissionMessage.classList.remove('hidden');
-                submissionMessage.style.animation = 'fadeInUp 0.5s ease-out';
+                // Disable submit button to prevent multiple submissions
+                const submitButton = hypothesisForm.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.innerHTML;
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<span class="relative z-10 flex items-center justify-center gap-2"><svg class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Sending...</span>';
                 
-                // Show toast notification
-                showToast('🌞 Thank you! Your thoughts have been submitted successfully.');
-                
-                hypothesisForm.reset();
-                
-                // Scroll to message
-                submissionMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    submissionMessage.style.animation = 'fadeInUp 0.3s ease-out reverse';
-                    setTimeout(() => {
-                        submissionMessage.classList.add('hidden');
-                    }, 300);
-                }, 5000);
-                
-                console.log('Thoughts submitted:', data);
+                // Send email using EmailJS
+                emailjs.send('service_xzqkq4x', 'template_o6x77ne', templateParams)
+                    .then(function(response) {
+                        console.log('Email sent successfully!', response.status, response.text);
+                        
+                        // Store in localStorage for backup
+                        const submissions = JSON.parse(localStorage.getItem('hypothesisSubmissions') || '[]');
+                        submissions.push(data);
+                        localStorage.setItem('hypothesisSubmissions', JSON.stringify(submissions));
+                        
+                        // Show success message with animation
+                        submissionMessage.classList.remove('hidden');
+                        submissionMessage.style.animation = 'fadeInUp 0.5s ease-out';
+                        
+                        // Show toast notification
+                        showToast('🌞 Thank you! Your thoughts have been submitted successfully.');
+                        
+                        hypothesisForm.reset();
+                        
+                        // Scroll to message
+                        submissionMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        
+                        // Hide message after 5 seconds
+                        setTimeout(() => {
+                            submissionMessage.style.animation = 'fadeInUp 0.3s ease-out reverse';
+                            setTimeout(() => {
+                                submissionMessage.classList.add('hidden');
+                            }, 300);
+                        }, 5000);
+                        
+                        // Re-enable submit button
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = originalButtonText;
+                    }, function(error) {
+                        console.error('Failed to send email:', error);
+                        
+                        // Show error toast
+                        showToast('⚠️ There was an error submitting your response. Please try again.');
+                        
+                        // Re-enable submit button
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = originalButtonText;
+                    });
             });
         }
     </script>
