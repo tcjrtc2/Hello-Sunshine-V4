@@ -1,0 +1,14 @@
+# Hello Sunshine Project - Robots.txt
+# Allow all search engines to crawl everything
+User-agent: *
+Allow: /
+
+# Block crawlers from private areas (if you have any in the future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Point to your sitemap
+Sitemap: https://www.hellosunshineproject.org/sitemap.xml
+
+# Crawl rate (optional - prevents server overload)
+Crawl-delay: 10
