@@ -3,13 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello Sunshine</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Hello Sunshine Project - Building Intergenerational Connections to Combat Loneliness</title>
+    <meta name="description" content="Join the Hello Sunshine Project to bridge generations and reduce loneliness. Connect older adults with young adults to build stronger, more inclusive communities through meaningful intergenerational relationships.">
+    <meta name="keywords" content="intergenerational connections, reduce loneliness, community belonging, older adults, young adults, social connection, community building, generational bridge, elderly engagement, youth mentorship">
+    <meta name="author" content="Hello Sunshine Project">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.hellosunshineproject.org/">
+    
+    <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hello Sunshine Project - Connecting Generations to Reduce Loneliness">
+    <meta property="og:description" content="Building intergenerational connections to reduce loneliness and strengthen community belonging. Join us in creating meaningful relationships between older and young adults.">
+    <meta property="og:url" content="https://www.hellosunshineproject.org/">
+    <meta property="og:site_name" content="Hello Sunshine Project">
+    <meta property="og:image" content="https://www.hellosunshineproject.org/images/hello-sunshine-social.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Hello Sunshine Project - Connecting Generations">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hello Sunshine Project - Connecting Generations">
+    <meta name="twitter:description" content="Building intergenerational connections to reduce loneliness and strengthen community belonging.">
+    <meta name="twitter:image" content="https://www.hellosunshineproject.org/images/hello-sunshine-twitter.jpg">
+    <meta name="twitter:image:alt" content="Hello Sunshine Project - Building Community Through Intergenerational Connection">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#fbbf24">
+    <meta name="application-name" content="Hello Sunshine Project">
+    <meta name="apple-mobile-web-app-title" content="Hello Sunshine">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    
     <!-- Preconnect to external resources for faster loading -->
     <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://api.emailjs.com" crossorigin>
+    <link rel="dns-prefetch" href="https://api.emailjs.com">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" as="script">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Hello Sunshine Project",
+      "alternateName": "Hello Sunshine",
+      "description": "A community initiative building intergenerational connections to reduce loneliness and strengthen community belonging between older adults and young adults through meaningful engagement and shared experiences.",
+      "url": "https://www.hellosunshineproject.org",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.hellosunshineproject.org/images/logo.png",
+        "width": 200,
+        "height": 200
+      },
+      "image": "https://www.hellosunshineproject.org/images/hello-sunshine-social.jpg",
+      "email": "hellosunshineproject@gmail.com",
+      "foundingDate": "2024",
+      "knowsAbout": [
+        "Intergenerational Programs",
+        "Community Building",
+        "Loneliness Prevention",
+        "Social Connection",
+        "Elder Care",
+        "Youth Engagement"
+      ],
+      "areaServed": {
+        "@type": "Place",
+        "name": "United States"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "General Inquiries",
+        "email": "hellosunshineproject@gmail.com",
+        "availableLanguage": "English"
+      },
+      "sameAs": [],
+      "slogan": "Believing in possibilities when generations connect",
+      "mission": "To reduce loneliness and strengthen community belonging by fostering meaningful intergenerational connections between older adults and young adults.",
+      "founder": {
+        "@type": "Person",
+        "name": "Hello Sunshine Project Team"
+      },
+      "sponsor": {
+        "@type": "Organization",
+        "name": "Healthy Living Center Norfolk",
+        "employee": {
+          "@type": "Person",
+          "name": "Dr. Olivia J. Newby",
+          "jobTitle": "President",
+          "honorificPrefix": "Dr.",
+          "honorificSuffix": "DNP, FNP-BC, CDCES, FAANP"
+        }
+      },
+      "potentialAction": {
+        "@type": "InteractAction",
+        "name": "Share Your Thoughts Survey",
+        "description": "Participate in our survey about intergenerational connections",
+        "target": "https://www.hellosunshineproject.org/#survey"
+      }
+    }
+    </script>
     <style>
         @keyframes spin-slow {
             from { transform: rotate(0deg); }
@@ -1107,7 +1214,7 @@
     </section>
 
     <!-- Hypothesis Section with Atmospheric Depth -->
-    <section class="relative z-10 px-6 py-20 bg-gradient-to-b from-transparent via-zinc-100/50 to-transparent">
+    <section class="relative z-10 px-6 py-20 bg-gradient-to-b from-transparent via-zinc-100/50 to-transparent" aria-labelledby="survey-heading" role="region">
         <!-- Layered atmospheric fog -->
         <div class="absolute inset-0 pointer-events-none -z-10">
             <div class="absolute inset-0 bg-gradient-to-br from-amber-50/10 via-transparent to-orange-50/10"></div>
@@ -1115,24 +1222,24 @@
         </div>
         <div class="max-w-4xl mx-auto">
             <div class="animate-on-scroll fade-in-up text-center mb-12">
-                <h2 class="text-amber-600 mb-4 text-4xl md:text-5xl font-bold">Share Your Thoughts</h2>
+                <h2 id="survey-heading" class="text-amber-600 mb-4 text-4xl md:text-5xl font-bold">Share Your Thoughts</h2>
                 <p class="text-zinc-700 max-w-2xl mx-auto">
                     Have thoughts on intergenerational connection? Share how bringing generations together can reduce generational barriers.
                 </p>
             </div>
             
             <div class="animate-on-scroll fade-in-up glass-card border border-zinc-200 rounded-3xl p-8 shadow-xl hover-lift">
-                <form class="space-y-8" id="hypothesisForm">
+                <form class="space-y-8" id="hypothesisForm" role="form" aria-label="Intergenerational connection survey">
                     <!-- Question 1 -->
-                    <div class="space-y-4">
-                        <label class="block text-amber-700 font-semibold text-lg">1) Are you open to participating in or supporting intergenerational connections between older adults and young adults?</label>
-                        <div class="flex gap-6">
+                    <fieldset class="space-y-4">
+                        <legend id="q1-legend" class="block text-amber-700 font-semibold text-lg">1) Are you open to participating in or supporting intergenerational connections between older adults and young adults?</legend>
+                        <div class="flex gap-6" role="radiogroup" aria-labelledby="q1-legend" aria-required="true">
                             <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="question1" value="yes" class="w-4 h-4 text-amber-600 focus:ring-amber-500" required />
+                                <input type="radio" name="question1" value="yes" class="w-4 h-4 text-amber-600 focus:ring-amber-500" aria-label="Yes, I am open to intergenerational connections" required />
                                 <span class="text-zinc-700">Yes</span>
                             </label>
                             <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="question1" value="no" class="w-4 h-4 text-amber-600 focus:ring-amber-500" />
+                                <input type="radio" name="question1" value="no" class="w-4 h-4 text-amber-600 focus:ring-amber-500" aria-label="No, I am not open to intergenerational connections" />
                                 <span class="text-zinc-700">No</span>
                             </label>
                         </div>
@@ -1144,21 +1251,22 @@
                                 name="question1optional"
                                 rows="3"
                                 placeholder="Share your thoughts..."
+                                aria-label="Optional details about your interest in intergenerational connection"
                                 class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all resize-none bg-white/50 backdrop-blur-sm hover:bg-white"
                             ></textarea>
                         </div>
-                    </div>
+                    </fieldset>
                     
                     <!-- Question 2 -->
-                    <div class="space-y-4">
-                        <label class="block text-amber-700 font-semibold text-lg">2) Do you believe that bringing older adults and young adults together can help reduce loneliness and strengthen community belonging?</label>
-                        <div class="flex gap-6">
+                    <fieldset class="space-y-4">
+                        <legend id="q2-legend" class="block text-amber-700 font-semibold text-lg">2) Do you believe that bringing older adults and young adults together can help reduce loneliness and strengthen community belonging?</legend>
+                        <div class="flex gap-6" role="radiogroup" aria-labelledby="q2-legend" aria-required="true">
                             <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="question2" value="yes" class="w-4 h-4 text-amber-600 focus:ring-amber-500" required />
+                                <input type="radio" name="question2" value="yes" class="w-4 h-4 text-amber-600 focus:ring-amber-500" aria-label="Yes, it can reduce loneliness and strengthen community belonging" required />
                                 <span class="text-zinc-700">Yes</span>
                             </label>
                             <label class="flex items-center gap-2 cursor-pointer">
-                                <input type="radio" name="question2" value="no" class="w-4 h-4 text-amber-600 focus:ring-amber-500" />
+                                <input type="radio" name="question2" value="no" class="w-4 h-4 text-amber-600 focus:ring-amber-500" aria-label="No, it cannot reduce loneliness or strengthen community belonging" />
                                 <span class="text-zinc-700">No</span>
                             </label>
                         </div>
@@ -1170,14 +1278,15 @@
                                 name="question2optional"
                                 rows="3"
                                 placeholder="Share your thoughts..."
+                                aria-label="Optional explanation about your belief on reducing loneliness through intergenerational connections"
                                 class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all resize-none bg-white/50 backdrop-blur-sm hover:bg-white"
                             ></textarea>
                         </div>
-                    </div>
+                    </fieldset>
                     
                     <!-- Contact Information Section -->
-                    <div class="space-y-4 pt-4 border-t border-zinc-200">
-                        <h3 class="text-amber-700 font-semibold text-lg">Contact Information (Optional)</h3>
+                    <fieldset class="space-y-4 pt-4 border-t border-zinc-200">
+                        <legend class="text-amber-700 font-semibold text-lg">Contact Information (Optional)</legend>
                         <p class="text-zinc-600 text-sm">If you'd like us to follow up with you, please share your contact details.</p>
                         
                         <div class="grid md:grid-cols-2 gap-4">
@@ -1188,6 +1297,8 @@
                                     id="contactName" 
                                     name="contactName"
                                     placeholder="Your name"
+                                    aria-label="Your full name"
+                                    autocomplete="name"
                                     class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all bg-white/50 backdrop-blur-sm hover:bg-white"
                                 />
                             </div>
@@ -1199,6 +1310,8 @@
                                     id="contactEmail" 
                                     name="contactEmail"
                                     placeholder="your.email@example.com"
+                                    aria-label="Your email address"
+                                    autocomplete="email"
                                     class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all bg-white/50 backdrop-blur-sm hover:bg-white"
                                 />
                             </div>
@@ -1211,17 +1324,20 @@
                                 id="contactPhone" 
                                 name="contactPhone"
                                 placeholder="(555) 123-4567"
+                                aria-label="Your phone number"
+                                autocomplete="tel"
                                 class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all bg-white/50 backdrop-blur-sm hover:bg-white"
                             />
                         </div>
-                    </div>
+                    </fieldset>
                     
                     <button 
                         type="submit"
+                        aria-label="Submit survey response"
                         class="btn-magnetic w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white rounded-full px-8 py-4 font-semibold shadow-lg shadow-amber-500/30 text-lg"
                     >
                         <span class="relative z-10 flex items-center justify-center gap-2">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
                             </svg>
                             Share Your Thoughts
@@ -1229,9 +1345,9 @@
                     </button>
                 </form>
                 
-                <div id="submissionMessage" class="hidden mt-6 p-4 glass-card-dark border border-amber-200 rounded-xl text-amber-800 text-center">
+                <div id="submissionMessage" class="hidden mt-6 p-4 glass-card-dark border border-amber-200 rounded-xl text-amber-800 text-center" role="status" aria-live="polite">
                     <div class="flex items-center justify-center gap-2">
-                        <svg class="w-6 h-6 text-amber-600" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-6 h-6 text-amber-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                         <span class="font-semibold">Thank you for sharing your thoughts! Your insights help us build stronger intergenerational connections.</span>
@@ -1556,9 +1672,8 @@
 
         // Initialize EmailJS
         (function() {
-            emailjs.init({
-                publicKey: 'CRY9t7KxoT1lJ5RjG'
-            });
+            // EmailJS v4 initialization
+            emailjs.init('CRY9t7KxoT1lJ5RjG');
         })();
 
         // Handle hypothesis form submission
@@ -1601,6 +1716,7 @@
                 submitButton.innerHTML = '<span class="relative z-10 flex items-center justify-center gap-2"><svg class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Sending...</span>';
                 
                 // Send email using EmailJS
+                console.log('Sending email with params:', templateParams);
                 emailjs.send('service_xzqkq4x', 'template_o6x77ne', templateParams)
                     .then(function(response) {
                         console.log('Email sent successfully!', response.status, response.text);
@@ -1634,10 +1750,13 @@
                         submitButton.disabled = false;
                         submitButton.innerHTML = originalButtonText;
                     }, function(error) {
-                        console.error('Failed to send email:', error);
+                        console.error('Failed to send email. Error details:', error);
+                        console.error('Error text:', error.text);
+                        console.error('Error status:', error.status);
                         
-                        // Show error toast
-                        showToast('⚠️ There was an error submitting your response. Please try again.');
+                        // Show detailed error toast
+                        const errorMsg = error.text || 'Unknown error occurred';
+                        showToast(`⚠️ Error: ${errorMsg}. Please check console for details.`);
                         
                         // Re-enable submit button
                         submitButton.disabled = false;
