@@ -1245,7 +1245,7 @@
                         </div>
                         
                         <div>
-                            <label for="question1optional" class="block text-zinc-600 text-sm mb-2">Optional: What interests you most about intergenerational connection?</label>
+                            <label for="question1optional" class="block text-zinc-600 text-sm mb-2">What interests you most about intergenerational connection?</label>
                             <textarea 
                                 id="question1optional" 
                                 name="question1optional"
@@ -1272,7 +1272,7 @@
                         </div>
                         
                         <div>
-                            <label for="question2optional" class="block text-zinc-600 text-sm mb-2">Optional: Why or why not?</label>
+                            <label for="question2optional" class="block text-zinc-600 text-sm mb-2">Why or why not?</label>
                             <textarea 
                                 id="question2optional" 
                                 name="question2optional"
@@ -1286,8 +1286,18 @@
                     
                     <!-- Contact Information Section -->
                     <fieldset class="space-y-4 pt-4 border-t border-zinc-200">
-                        <legend class="text-amber-700 font-semibold text-lg">Contact Information (Optional)</legend>
-                        <p class="text-zinc-600 text-sm">If you'd like us to follow up with you, please share your contact details.</p>
+                        <div class="flex items-start gap-3">
+                            <input 
+                                type="checkbox" 
+                                id="contactCheckbox" 
+                                name="contactCheckbox"
+                                class="mt-1 w-4 h-4 text-amber-600 focus:ring-amber-500 rounded"
+                            />
+                            <div>
+                                <label for="contactCheckbox" class="text-amber-700 font-semibold text-lg cursor-pointer">Contact Information</label>
+                                <p class="text-zinc-600 text-sm mt-1">If you'd like us to follow up with you, please share your contact details.</p>
+                            </div>
+                        </div>
                         
                         <div class="grid md:grid-cols-2 gap-4">
                             <div>
@@ -1329,6 +1339,10 @@
                                 class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all bg-white/50 backdrop-blur-sm hover:bg-white"
                             />
                         </div>
+                        
+                        <div class="pt-4">
+                            <p class="text-zinc-700 font-medium mb-2">Would you like to make a donation through our Fiduciary Sponsor?</p>
+                        </div>
                     </fieldset>
                     
                     <button 
@@ -1358,59 +1372,64 @@
     </section>
 
     <!-- Visual Break -->
-    <section class="relative z-10 px-6 py-20">
-        <div class="max-w-4xl mx-auto">
-            <div class="animate-on-scroll fade-in-scale rounded-3xl overflow-hidden border border-amber-200 shadow-2xl">
-                <div class="scripps_iframe_embed" style="position:relative"><div style="display:block;width:100%;height:auto;padding-bottom:56.25%;"></div><iframe id="da-iframe" allowfullscale="" style="position:absolute;top:0;left:0;width:100%;height:100%;" border="0" height="100%" frameborder="0" webkitallowfullscreen="" allowfullscreen="" mozallowfullscreen="" scrolling="no" src="https://assets.scrippsdigital.com/cms/video/player.html?video=https://content.uplynk.com/f347d4ad60154b99942ad82724ccf629.m3u8&mp4=https://cf.cdn.uplynk.com/ause1/slices/f34/dbe20997a7104511baed3a1f2e443baf/f347d4ad60154b99942ad82724ccf629/f347d4ad60154b99942ad82724ccf629_e.mp4&autoplay=false&purl=/news/in-the-community/norfolk/new-program-pairs-seniors-young-adults-in-hampton-roads-to-help-combat-loneliness-and-isolation&ads.iu=/6088/ssp.wtkr/news/in-the-community/norfolk/new-program-pairs-seniors-young-adults-in-hampton-roads-to-help-combat-loneliness-and-isolation&ads.proxy=1&poster=https://cf.cdn.uplynk.com/ause1/slices/f34/dbe20997a7104511baed3a1f2e443baf/f347d4ad60154b99942ad82724ccf629/poster_299e1c766de44114a6330e98f617e2ed.jpg&title=Hello%2C%20Sunshine%3A%20New%20program%20pairs%20seniors%2C%20young%20adults%20in%20Hampton%20Roads%20to%20help%20combat%20loneliness%20and%20isolation&kw=&contplay=*recent&mute=0&tags=Homepage%2CHomepage%20Showcase%2CNews%2CHampton%2CNorfolk&section=Norfolk&cust_params=temp%3D%26weather%3D&host=wtkr.com&s=wtkr&env=production&ex=1" allow="autoplay; fullscreen"></iframe></div>
+    <section class="relative z-10 px-6 py-12">
+        <div class="max-w-xl mx-auto">
+            <div class="animate-on-scroll fade-in-scale rounded-2xl overflow-hidden border border-amber-200 shadow-xl">
+                <div class="scripps_iframe_embed" style="position:relative"><div style="display:block;width:100%;height:auto;padding-bottom:42%;"></div><iframe id="da-iframe" allowfullscale="" style="position:absolute;top:0;left:0;width:100%;height:100%;" border="0" height="100%" frameborder="0" webkitallowfullscreen="" allowfullscreen="" mozallowfullscreen="" scrolling="no" src="https://assets.scrippsdigital.com/cms/video/player.html?video=https://content.uplynk.com/f347d4ad60154b99942ad82724ccf629.m3u8&mp4=https://cf.cdn.uplynk.com/ause1/slices/f34/dbe20997a7104511baed3a1f2e443baf/f347d4ad60154b99942ad82724ccf629/f347d4ad60154b99942ad82724ccf629_e.mp4&autoplay=false&purl=/news/in-the-community/norfolk/new-program-pairs-seniors-young-adults-in-hampton-roads-to-help-combat-loneliness-and-isolation&ads.iu=/6088/ssp.wtkr/news/in-the-community/norfolk/new-program-pairs-seniors-young-adults-in-hampton-roads-to-help-combat-loneliness-and-isolation&ads.proxy=1&poster=https://cf.cdn.uplynk.com/ause1/slices/f34/dbe20997a7104511baed3a1f2e443baf/f347d4ad60154b99942ad82724ccf629/poster_299e1c766de44114a6330e98f617e2ed.jpg&title=Hello%2C%20Sunshine%3A%20New%20program%20pairs%20seniors%2C%20young%20adults%20in%20Hampton%20Roads%20to%20help%20combat%20loneliness%20and%20isolation&kw=&contplay=*recent&mute=0&tags=Homepage%2CHomepage%20Showcase%2CNews%2CHampton%2CNorfolk&section=Norfolk&cust_params=temp%3D%26weather%3D&host=wtkr.com&s=wtkr&env=production&ex=1" allow="autoplay; fullscreen"></iframe></div>
             </div>
             
             <!-- Article Content -->
-            <div class="mt-12 space-y-6 text-zinc-700 leading-relaxed text-xl">
-                <p class="animate-on-scroll fade-in-up">NORFOLK, Va.— A new community initiative is launching across Hampton Roads aimed at bridging generational gaps and helping combat loneliness and isolation among both seniors and young adults.</p>
+            <div class="mt-8 space-y-4 text-zinc-700 leading-relaxed text-lg">
+                <p class="animate-on-scroll fade-in-up">NORFOLK, Va.— Hello Sunshine is a new Hampton Roads initiative pairing older adults — <span class="text-amber-600 font-semibold">"wisers"</span> — with people in their twenties for a four-week <span class="text-amber-600 font-semibold">"buddy"</span> experience to combat loneliness across generations.</p>
                 
-                <p class="animate-on-scroll fade-in-up" style="transition-delay: 0.1s">Called Hello Sunshine, the program pairs older adults — referred to as <span class="text-amber-600 font-semibold">"wisers"</span> — with people in their early twenties for a four-week <span class="text-amber-600 font-semibold">"buddy"</span> experience. Starting Dec. 8, each pair will check in with one another via text on weekdays, and then meet in person for a group activity on Saturdays.</p>
-                
-                <p class="animate-on-scroll fade-in-up" style="transition-delay: 0.2s">The program began when Hampton resident Jocelyn Scott proposed the idea to her city council earlier this year. She explains that the post-COVID era saw marked increases in depression and isolation — not only among seniors, but also among young adults. She believes these two demographics, often overlooked together, could benefit greatly from intergenerational connection.</p>
-                
-                <p class="animate-on-scroll fade-in-up" style="transition-delay: 0.3s">One early participant, 22-year-old Carter Scott, said the friendship he struck with 75-year-old Pearl Ross took him by surprise. The two spend time together making funny videos, exchanging ideas, and connecting despite their age difference. <span class="italic text-zinc-600">"I think there has been something special with communicating with people that aren't my age group,"</span> Carter said.</p>
-                
-                <p class="animate-on-scroll fade-in-up" style="transition-delay: 0.4s">The program is running in partnership with The Healthy Living Center, a Norfolk non-profit focused on community health and wellness — including healthy cooking and lifestyle education. Their resources will be incorporated into Hello Sunshine's group activities.</p>
-                
-                <p class="animate-on-scroll fade-in-up" style="transition-delay: 0.5s">Organizers hope to expand Hello Sunshine after the first round, possibly involving local colleges so that students can participate for service credit.</p>
-                
-                <div class="mt-8 pt-6 border-t border-amber-200 animate-on-scroll fade-in-scale" style="transition-delay: 0.6s">
-                    <h3 class="text-2xl md:text-3xl font-bold text-amber-600 mb-6">Why it matters:</h3>
-                    <ul class="space-y-4">
-                        <li class="stagger-item flex items-start gap-3" style="transition-delay: 0.7s">
-                            <span class="text-amber-600 font-bold text-lg mt-1">•</span>
-                            <span>Seniors and young adults alike have faced increased social isolation in recent years; this program acknowledges that loneliness doesn't only affect the elderly.</span>
-                        </li>
-                        <li class="stagger-item flex items-start gap-3" style="transition-delay: 0.8s">
-                            <span class="text-amber-600 font-bold text-lg mt-1">•</span>
-                            <span>By fostering intergenerational friendships, Hello Sunshine offers mutual support, fresh perspectives, and the chance to learn from one another across generations.</span>
-                        </li>
-                        <li class="stagger-item flex items-start gap-3" style="transition-delay: 0.9s">
-                            <span class="text-amber-600 font-bold text-lg mt-1">•</span>
-                            <span>Involving a health-oriented nonprofit adds a wellness dimension, potentially improving physical, emotional, and social health through shared activities.</span>
-                        </li>
-                        <li class="stagger-item flex items-start gap-3" style="transition-delay: 1s">
-                            <span class="text-amber-600 font-bold text-lg mt-1">•</span>
-                            <span>Hello Sunshine represents a growing recognition in Hampton Roads that community health goes beyond physical well-being — mental and social wellness matter just as</span>
-                        </li>
-                    </ul>
+                <!-- Read More Button -->
+                <div class="text-center">
+                    <button id="readMoreBtn" onclick="toggleReadMore()" class="text-amber-600 hover:text-amber-700 font-medium text-sm underline transition-colors">
+                        <span id="readMoreText">Read More</span>
+                    </button>
+                </div>
+
+                <!-- Expandable Content -->
+                <div id="expandableContent" class="hidden space-y-4">
+                    <p class="animate-on-scroll fade-in-up">Called Hello Sunshine, the program pairs older adults — referred to as <span class="text-amber-600 font-semibold">"wisers"</span> — with people in their early twenties for a four-week <span class="text-amber-600 font-semibold">"buddy"</span> experience. Starting Dec. 8, each pair will check in with one another via text on weekdays, and then meet in person for a group activity on Saturdays.</p>
+                    
+                    <p class="animate-on-scroll fade-in-up">The program began when Hampton resident Jocelyn Scott proposed the idea to her city council earlier this year. She explains that the post-COVID era saw marked increases in depression and isolation — not only among seniors, but also among young adults. She believes these two demographics, often overlooked together, could benefit greatly from intergenerational connection.</p>
+                    
+                    <p class="animate-on-scroll fade-in-up">One early participant, 22-year-old Carter Scott, said the friendship he struck with 75-year-old Pearl Ross took him by surprise. The two spend time together making funny videos, exchanging ideas, and connecting despite their age difference. <span class="italic text-zinc-600">"I think there has been something special with communicating with people that aren't my age group,"</span> Carter said.</p>
+                    
+                    <p class="animate-on-scroll fade-in-up">The program is running in partnership with The Healthy Living Center, a Norfolk non-profit focused on community health and wellness — including healthy cooking and lifestyle education. Their resources will be incorporated into Hello Sunshine's group activities.</p>
+                    
+                    <p class="animate-on-scroll fade-in-up">Organizers hope to expand Hello Sunshine after the first round, possibly involving local colleges so that students can participate for service credit.</p>
+                    
+                    <div class="mt-6 pt-4 border-t border-amber-200">
+                        <h3 class="text-xl font-bold text-amber-600 mb-3">Why it matters:</h3>
+                        <ul class="space-y-2 text-base">
+                            <li class="flex items-start gap-2">
+                                <span class="text-amber-600 font-bold mt-1">•</span>
+                                <span>Seniors and young adults alike have faced increased social isolation in recent years; this program acknowledges that loneliness doesn't only affect the elderly.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-amber-600 font-bold mt-1">•</span>
+                                <span>By fostering intergenerational friendships, Hello Sunshine offers mutual support, fresh perspectives, and the chance to learn from one another across generations.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-amber-600 font-bold mt-1">•</span>
+                                <span>Involving a health-oriented nonprofit adds a wellness dimension, potentially improving physical, emotional, and social health through shared activities.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-amber-600 font-bold mt-1">•</span>
+                                <span>Hello Sunshine represents a growing recognition in Hampton Roads that community health goes beyond physical well-being — mental and social wellness matter just as much.</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Jocelyn Scott Video Section -->
-    <section class="relative z-10 px-6 py-20 bg-gradient-to-b from-white to-amber-50">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold text-amber-600 text-center mb-8 animate-on-scroll fade-in-up relative overflow-hidden" style="background: linear-gradient(90deg, #d97706 0%, #f59e0b 25%, #fbbf24 50%, #f59e0b 75%, #d97706 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 8s ease-in-out infinite;">
+            <h2 class="text-2xl md:text-3xl font-bold text-amber-600 text-center mt-6 mb-4 animate-on-scroll fade-in-up relative overflow-hidden" style="background: linear-gradient(90deg, #d97706 0%, #f59e0b 25%, #fbbf24 50%, #f59e0b 75%, #d97706 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 8s ease-in-out infinite;">
                 Jocelyn Scott tells Hampton City Council about Hello Sunshine
             </h2>
-            <div class="animate-on-scroll fade-in-scale rounded-3xl overflow-hidden border border-amber-200 shadow-2xl">
-                <div class="scripps_iframe_embed" style="position:relative"><div style="display:block;width:100%;height:auto;padding-bottom:56.25%;"></div><iframe id="da-iframe" allowfullscale="" style="position:absolute;top:0;left:0;width:100%;height:100%;" border="0" height="100%" frameborder="0" webkitallowfullscreen="" allowfullscreen="" mozallowfullscreen="" scrolling="no" src="https://assets.scrippsdigital.com/cms/video/player.html?video=https://content.uplynk.com/4594ec61fccd48de865f070e84b2ad1c.m3u8&mp4=https://cf.cdn.uplynk.com/ause1/slices/459/dbe20997a7104511baed3a1f2e443baf/4594ec61fccd48de865f070e84b2ad1c/4594ec61fccd48de865f070e84b2ad1c_e.mp4&autoplay=false&purl=/news/in-the-community/norfolk/new-program-pairs-seniors-young-adults-in-hampton-roads-to-help-combat-loneliness-and-isolation&ads.iu=/6088/ssp.wtkr/news/in-the-community/norfolk/new-program-pairs-seniors-young-adults-in-hampton-roads-to-help-combat-loneliness-and-isolation&ads.proxy=1&poster=https://cf.cdn.uplynk.com/ause1/slices/459/dbe20997a7104511baed3a1f2e443baf/4594ec61fccd48de865f070e84b2ad1c/poster_12c1283063714d3b95ffaf912869d33d.jpg&title=Jocelyn%20Scott%20tells%20Hampton%20City%20Council%20about%20Hello%20Sunshine&kw=%2Cnews&contplay=*recent&mute=0&tags=Homepage%2CHomepage%20Showcase%2CNews%2CHampton%2CNorfolk&section=Norfolk&cust_params=temp%3D%26weather%3D&host=wtkr.com&s=wtkr&env=production&ex=1" allow="autoplay; fullscreen"></iframe></div>
+            <div class="animate-on-scroll fade-in-scale rounded-2xl overflow-hidden border border-amber-200 shadow-xl">
+                <div class="scripps_iframe_embed" style="position:relative"><div style="display:block;width:100%;height:auto;padding-bottom:42%;"></div><iframe id="da-iframe" allowfullscale="" style="position:absolute;top:0;left:0;width:100%;height:100%;" border="0" height="100%" frameborder="0" webkitallowfullscreen="" allowfullscreen="" mozallowfullscreen="" scrolling="no" src="https://assets.scrippsdigital.com/cms/video/player.html?video=https://content.uplynk.com/4594ec61fccd48de865f070e84b2ad1c.m3u8&mp4=https://cf.cdn.uplynk.com/ause1/slices/459/dbe20997a7104511baed3a1f2e443baf/4594ec61fccd48de865f070e84b2ad1c/4594ec61fccd48de865f070e84b2ad1c_e.mp4&autoplay=false&purl=/news/in-the-community/norfolk/new-program-pairs-seniors-young-adults-in-hampton-roads-to-help-combat-loneliness-and-isolation&ads.iu=/6088/ssp.wtkr/news/in-the-community/norfolk/new-program-pairs-seniors-young-adults-in-hampton-roads-to-help-combat-loneliness-and-isolation&ads.proxy=1&poster=https://cf.cdn.uplynk.com/ause1/slices/459/dbe20997a7104511baed3a1f2e443baf/4594ec61fccd48de865f070e84b2ad1c/poster_12c1283063714d3b95ffaf912869d33d.jpg&title=Jocelyn%20Scott%20tells%20Hampton%20City%20Council%20about%20Hello%20Sunshine&kw=%2Cnews&contplay=*recent&mute=0&tags=Homepage%2CHomepage%20Showcase%2CNews%2CHampton%2CNorfolk&section=Norfolk&cust_params=temp%3D%26weather%3D&host=wtkr.com&s=wtkr&env=production&ex=1" allow="autoplay; fullscreen"></iframe></div>
             </div>
         </div>
     </section>
@@ -1426,14 +1445,20 @@
                 <p class="text-zinc-500 text-sm">
                     © 2025 Hello Sunshine Project. Believing in possibilities when generations connect.
                 </p>
-                <p class="text-lg">
-                    <a href="mailto:hellosunshineproject26@gmail.com" class="text-amber-600 hover:text-amber-700 font-medium transition-colors inline-flex items-center gap-1">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                        hellosunshineproject26@gmail.com
-                    </a>
-                </p>
+                <div class="flex flex-col items-center gap-2">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-amber-50 rounded-full border border-amber-200">
+                        <span class="text-amber-700 font-semibold">Jocelyn Scott</span>
+                        <span class="text-amber-600 text-sm">• Creator & Contact</span>
+                    </div>
+                    <p class="text-lg">
+                        <a href="mailto:hellosunshineproject26@gmail.com" class="text-amber-600 hover:text-amber-700 font-medium transition-colors inline-flex items-center gap-1">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            hellosunshineproject26@gmail.com
+                        </a>
+                    </p>
+                </div>
             </div>
             
             <!-- Fiduciary Sponsor Section -->
@@ -1488,6 +1513,20 @@
                 scrollTicking = true;
             }
         }, { passive: true });
+        
+        // Read More Toggle Function
+        function toggleReadMore() {
+            const content = document.getElementById('expandableContent');
+            const btnText = document.getElementById('readMoreText');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                btnText.textContent = 'Read Less';
+            } else {
+                content.classList.add('hidden');
+                btnText.textContent = 'Read More';
+            }
+        }
         
         // Ripple Effect for Buttons
         function createRipple(event) {
