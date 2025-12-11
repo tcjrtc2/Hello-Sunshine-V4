@@ -1767,6 +1767,7 @@
                     contactName: formData.get('contactName'),
                     contactEmail: formData.get('contactEmail'),
                     contactPhone: formData.get('contactPhone'),
+                    donationCheckbox: formData.get('donationCheckbox'),
                     timestamp: new Date().toISOString()
                 };
                 
@@ -1779,7 +1780,8 @@
                     q2_optional: data.question2optional || 'Not provided',
                     contact_name: data.contactName || 'Not provided',
                     contact_email: data.contactEmail || 'Not provided',
-                    contact_phone: data.contactPhone || 'Not provided'
+                    contact_phone: data.contactPhone || 'Not provided',
+                    donation_interest: data.donationCheckbox ? 'Yes, interested in making a donation' : 'No donation interest indicated'
                 };
                 
                 // Disable submit button to prevent multiple submissions
