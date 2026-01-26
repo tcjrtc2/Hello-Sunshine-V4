@@ -1,492 +1,1853 @@
-@layer properties {
-  @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
-    *, :before, :after, ::backdrop {
-      --tw-font-weight: initial;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>Hello Sunshine Project - Building Intergenerational Connections to Combat Loneliness</title>
+    <meta name="description" content="Join the Hello Sunshine Project to bridge generations and reduce loneliness. Connect older adults with young adults to build stronger, more inclusive communities through meaningful intergenerational relationships.">
+    <meta name="keywords" content="intergenerational connections, reduce loneliness, community belonging, older adults, young adults, social connection, community building, generational bridge, elderly engagement, youth mentorship">
+    <meta name="author" content="Hello Sunshine Project">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <link rel="canonical" href="https://www.hellosunshineproject.org/">
+    
+    <!-- Open Graph Meta Tags (Facebook, LinkedIn) -->
+    <meta property="og:locale" content="en_US">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hello Sunshine Project - Connecting Generations to Reduce Loneliness">
+    <meta property="og:description" content="Building intergenerational connections to reduce loneliness and strengthen community belonging. Join us in creating meaningful relationships between older and young adults.">
+    <meta property="og:url" content="https://www.hellosunshineproject.org/">
+    <meta property="og:site_name" content="Hello Sunshine Project">
+    <meta property="og:image" content="https://www.hellosunshineproject.org/images/hello-sunshine-social.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Hello Sunshine Project - Connecting Generations">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hello Sunshine Project - Connecting Generations">
+    <meta name="twitter:description" content="Building intergenerational connections to reduce loneliness and strengthen community belonging.">
+    <meta name="twitter:image" content="https://www.hellosunshineproject.org/images/hello-sunshine-twitter.jpg">
+    <meta name="twitter:image:alt" content="Hello Sunshine Project - Building Community Through Intergenerational Connection">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="theme-color" content="#fbbf24">
+    <meta name="application-name" content="Hello Sunshine Project">
+    <meta name="apple-mobile-web-app-title" content="Hello Sunshine">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="format-detection" content="telephone=no">
+    
+    <!-- Preconnect to external resources for faster loading -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://api.emailjs.com" crossorigin>
+    <link rel="dns-prefetch" href="https://api.emailjs.com">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" as="script">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Hello Sunshine Project",
+      "alternateName": "Hello Sunshine",
+      "description": "A community initiative building intergenerational connections to reduce loneliness and strengthen community belonging between older adults and young adults through meaningful engagement and shared experiences.",
+      "url": "https://www.hellosunshineproject.org",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.hellosunshineproject.org/images/logo.png",
+        "width": 200,
+        "height": 200
+      },
+      "image": "https://www.hellosunshineproject.org/images/hello-sunshine-social.jpg",
+      "email": "hellosunshineproject26@gmail.com",
+      "foundingDate": "2024",
+      "knowsAbout": [
+        "Intergenerational Programs",
+        "Community Building",
+        "Loneliness Prevention",
+        "Social Connection",
+        "Elder Care",
+        "Youth Engagement"
+      ],
+      "areaServed": {
+        "@type": "Place",
+        "name": "United States"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "General Inquiries",
+        "email": "hellosunshineproject26@gmail.com",
+        "availableLanguage": "English"
+      },
+      "sameAs": [],
+      "slogan": "Believing in possibilities when generations connect",
+      "mission": "To reduce loneliness and strengthen community belonging by fostering meaningful intergenerational connections between older adults and young adults.",
+      "founder": {
+        "@type": "Person",
+        "name": "Hello Sunshine Project Team"
+      },
+      "sponsor": {
+        "@type": "Organization",
+        "name": "Healthy Living Center Norfolk",
+        "employee": {
+          "@type": "Person",
+          "name": "Dr. Olivia J. Newby",
+          "jobTitle": "President",
+          "honorificPrefix": "Dr.",
+          "honorificSuffix": "DNP, FNP-BC, CDCES, FAANP"
+        }
+      },
+      "potentialAction": {
+        "@type": "InteractAction",
+        "name": "Share Your Thoughts Survey",
+        "description": "Participate in our survey about intergenerational connections",
+        "target": "https://www.hellosunshineproject.org/#survey"
+      }
     }
-  }
-}
-
-@layer theme {
-  :root, :host {
-    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    --color-amber-400: oklch(.828 .189 84.429);
-    --color-amber-500: oklch(.769 .188 70.08);
-    --color-zinc-100: oklch(.967 .001 286.375);
-    --color-zinc-400: oklch(.705 .015 286.067);
-    --color-zinc-950: oklch(.141 .005 285.823);
-    --spacing: .25rem;
-    --text-base: 1rem;
-    --text-lg: 1.125rem;
-    --text-xl: 1.25rem;
-    --text-2xl: 1.5rem;
-    --text-4xl: 2.25rem;
-    --text-4xl--line-height: calc(2.5 / 2.25);
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-bold: 700;
-    --default-font-family: var(--font-sans);
-    --default-font-feature-settings: var(--font-sans--font-feature-settings);
-    --default-font-variation-settings: var(--font-sans--font-variation-settings);
-    --default-mono-font-family: var(--font-mono);
-    --default-mono-font-feature-settings: var(--font-mono--font-feature-settings);
-    --default-mono-font-variation-settings: var(--font-mono--font-variation-settings);
-  }
-}
-
-@layer base {
-  *, :after, :before, ::backdrop {
-    box-sizing: border-box;
-    border: 0 solid;
-    margin: 0;
-    padding: 0;
-  }
-
-  ::file-selector-button {
-    box-sizing: border-box;
-    border: 0 solid;
-    margin: 0;
-    padding: 0;
-  }
-
-  html, :host {
-    -webkit-text-size-adjust: 100%;
-    tab-size: 4;
-    line-height: 1.5;
-    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
-    font-feature-settings: var(--default-font-feature-settings, normal);
-    font-variation-settings: var(--default-font-variation-settings, normal);
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  body {
-    line-height: inherit;
-  }
-
-  hr {
-    height: 0;
-    color: inherit;
-    border-top-width: 1px;
-  }
-
-  abbr:where([title]) {
-    -webkit-text-decoration: underline dotted;
-    text-decoration: underline dotted;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-size: inherit;
-    font-weight: inherit;
-  }
-
-  a {
-    color: inherit;
-    -webkit-text-decoration: inherit;
-    -webkit-text-decoration: inherit;
-    text-decoration: inherit;
-  }
-
-  b, strong {
-    font-weight: bolder;
-  }
-
-  code, kbd, samp, pre {
-    font-family: var(--default-mono-font-family, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace);
-    font-feature-settings: var(--default-mono-font-feature-settings, normal);
-    font-variation-settings: var(--default-mono-font-variation-settings, normal);
-    font-size: 1em;
-  }
-
-  small {
-    font-size: 80%;
-  }
-
-  sub, sup {
-    vertical-align: baseline;
-    font-size: 75%;
-    line-height: 0;
-    position: relative;
-  }
-
-  sub {
-    bottom: -.25em;
-  }
-
-  sup {
-    top: -.5em;
-  }
-
-  table {
-    text-indent: 0;
-    border-color: inherit;
-    border-collapse: collapse;
-  }
-
-  :-moz-focusring {
-    outline: auto;
-  }
-
-  progress {
-    vertical-align: baseline;
-  }
-
-  summary {
-    display: list-item;
-  }
-
-  ol, ul, menu {
-    list-style: none;
-  }
-
-  img, svg, video, canvas, audio, iframe, embed, object {
-    vertical-align: middle;
-    display: block;
-  }
-
-  img, video {
-    max-width: 100%;
-    height: auto;
-  }
-
-  button, input, select, optgroup, textarea {
-    font: inherit;
-    font-feature-settings: inherit;
-    font-variation-settings: inherit;
-    letter-spacing: inherit;
-    color: inherit;
-    opacity: 1;
-    background-color: #0000;
-    border-radius: 0;
-  }
-
-  ::file-selector-button {
-    font: inherit;
-    font-feature-settings: inherit;
-    font-variation-settings: inherit;
-    letter-spacing: inherit;
-    color: inherit;
-    opacity: 1;
-    background-color: #0000;
-    border-radius: 0;
-  }
-
-  :where(select:is([multiple], [size])) optgroup {
-    font-weight: bolder;
-  }
-
-  :where(select:is([multiple], [size])) optgroup option {
-    padding-inline-start: 20px;
-  }
-
-  ::file-selector-button {
-    margin-inline-end: 4px;
-  }
-
-  ::placeholder {
-    opacity: 1;
-    color: currentColor;
-  }
-
-  @supports (color: color-mix(in lab, red, red)) {
-    ::placeholder {
-      color: color-mix(in oklab, currentColor 50%, transparent);
-    }
-  }
-
-  textarea {
-    resize: vertical;
-  }
-
-  ::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
-
-  ::-webkit-date-and-time-value {
-    min-height: 1lh;
-    text-align: inherit;
-  }
-
-  ::-webkit-datetime-edit {
-    display: inline-flex;
-  }
-
-  ::-webkit-datetime-edit-fields-wrapper {
-    padding: 0;
-  }
-
-  ::-webkit-datetime-edit {
-    padding-block: 0;
-  }
-
-  ::-webkit-datetime-edit-year-field {
-    padding-block: 0;
-  }
-
-  ::-webkit-datetime-edit-month-field {
-    padding-block: 0;
-  }
-
-  ::-webkit-datetime-edit-day-field {
-    padding-block: 0;
-  }
-
-  ::-webkit-datetime-edit-hour-field {
-    padding-block: 0;
-  }
-
-  ::-webkit-datetime-edit-minute-field {
-    padding-block: 0;
-  }
-
-  ::-webkit-datetime-edit-second-field {
-    padding-block: 0;
-  }
-
-  ::-webkit-datetime-edit-millisecond-field {
-    padding-block: 0;
-  }
-
-  ::-webkit-datetime-edit-meridiem-field {
-    padding-block: 0;
-  }
-
-  :-moz-ui-invalid {
-    box-shadow: none;
-  }
-
-  button, input:where([type="button"], [type="reset"], [type="submit"]) {
-    appearance: button;
-  }
-
-  ::file-selector-button {
-    appearance: button;
-  }
-
-  ::-webkit-inner-spin-button {
-    height: auto;
-  }
-
-  ::-webkit-outer-spin-button {
-    height: auto;
-  }
-
-  [hidden]:where(:not([hidden="until-found"])) {
-    display: none !important;
-  }
-
-  * {
-    border-color: var(--border);
-    outline-color: var(--ring);
-  }
-
-  @supports (color: color-mix(in lab, red, red)) {
-    * {
-      outline-color: color-mix(in oklab, var(--ring) 50%, transparent);
-    }
-  }
-
-  * {
-    border-color: var(--border);
-    outline-color: var(--ring);
-  }
-
-  @supports (color: color-mix(in lab, red, red)) {
-    * {
-      outline-color: color-mix(in oklab, var(--ring) 50%, transparent);
-    }
-  }
-
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
-  }
-
-  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) h1 {
-    font-size: var(--text-2xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-  }
-
-  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) h2 {
-    font-size: var(--text-xl);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-  }
-
-  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) h3 {
-    font-size: var(--text-lg);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-  }
-
-  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) h4 {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-  }
-
-  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) p {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-normal);
-    line-height: 1.5;
-  }
-
-  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) label, :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) button {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
-    line-height: 1.5;
-  }
-
-  :where(:not(:has([class*=" text-"]), :not(:has([class^="text-"])))) input {
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-normal);
-    line-height: 1.5;
-  }
-}
-
-@layer utilities {
-  .mb-4 {
-    margin-bottom: calc(var(--spacing) * 4);
-  }
-
-  .flex {
-    display: flex;
-  }
-
-  .min-h-screen {
-    min-height: 100vh;
-  }
-
-  .items-center {
-    align-items: center;
-  }
-
-  .justify-center {
-    justify-content: center;
-  }
-
-  .bg-zinc-950 {
-    background-color: var(--color-zinc-950);
-  }
-
-  .text-center {
-    text-align: center;
-  }
-
-  .text-4xl {
-    font-size: var(--text-4xl);
-    line-height: var(--tw-leading, var(--text-4xl--line-height));
-  }
-
-  .font-bold {
-    --tw-font-weight: var(--font-weight-bold);
-    font-weight: var(--font-weight-bold);
-  }
-
-  .text-amber-400 {
-    color: var(--color-amber-400);
-  }
-
-  .text-amber-500 {
-    color: var(--color-amber-500);
-  }
-
-  .text-zinc-100 {
-    color: var(--color-zinc-100);
-  }
-
-  .text-zinc-400 {
-    color: var(--color-zinc-400);
-  }
-
-  .underline {
-    text-decoration-line: underline;
-  }
-}
-
-:root {
-  --font-size: 16px;
-  --background: #fff;
-  --foreground: oklch(.145 0 0);
-  --card: #fff;
-  --card-foreground: oklch(.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(.145 0 0);
-  --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(.95 .0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
-  --destructive: #d4183d;
-  --destructive-foreground: #fff;
-  --border: #0000001a;
-  --input: transparent;
-  --input-background: #f3f3f5;
-  --switch-background: #cbced4;
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --ring: oklch(.708 0 0);
-  --chart-1: oklch(.646 .222 41.116);
-  --chart-2: oklch(.6 .118 184.704);
-  --chart-3: oklch(.398 .07 227.392);
-  --chart-4: oklch(.828 .189 84.429);
-  --chart-5: oklch(.769 .188 70.08);
-  --radius: .625rem;
-  --sidebar: oklch(.985 0 0);
-  --sidebar-foreground: oklch(.145 0 0);
-  --sidebar-primary: #030213;
-  --sidebar-primary-foreground: oklch(.985 0 0);
-  --sidebar-accent: oklch(.97 0 0);
-  --sidebar-accent-foreground: oklch(.205 0 0);
-  --sidebar-border: oklch(.922 0 0);
-  --sidebar-ring: oklch(.708 0 0);
-}
-
-.dark {
-  --background: oklch(.145 0 0);
-  --foreground: oklch(.985 0 0);
-  --card: oklch(.145 0 0);
-  --card-foreground: oklch(.985 0 0);
-  --popover: oklch(.145 0 0);
-  --popover-foreground: oklch(.985 0 0);
-  --primary: oklch(.985 0 0);
-  --primary-foreground: oklch(.205 0 0);
-  --secondary: oklch(.269 0 0);
-  --secondary-foreground: oklch(.985 0 0);
-  --muted: oklch(.269 0 0);
-  --muted-foreground: oklch(.708 0 0);
-  --accent: oklch(.269 0 0);
-  --accent-foreground: oklch(.985 0 0);
-  --destructive: oklch(.396 .141 25.723);
-  --destructive-foreground: oklch(.637 .237 25.331);
-  --border: oklch(.269 0 0);
-  --input: oklch(.269 0 0);
-  --ring: oklch(.439 0 0);
-  --font-weight-medium: 500;
-  --font-weight-normal: 400;
-  --chart-1: oklch(.488 .243 264.376);
-  --chart-2: oklch(.696 .17 162.48);
-  --chart-3: oklch(.769 .188 70.08);
-  --chart-4: oklch(.627 .265 303.9);
-  --chart-5: oklch(.645 .246 16.439);
-  --sidebar: oklch(.205 0 0);
-  --sidebar-foreground: oklch(.985 0 0);
-  --sidebar-primary: oklch(.488 .243 264.376);
-  --sidebar-primary-foreground: oklch(.985 0 0);
-  --sidebar-accent: oklch(.269 0 0);
-  --sidebar-accent-foreground: oklch(.985 0 0);
-  --sidebar-border: oklch(.269 0 0);
-  --sidebar-ring: oklch(.439 0 0);
-}
-
-html {
-  font-size: var(--font-size);
-}
-
-@property --tw-font-weight {
-  syntax: "*";
-  inherits: false
-}
+    </script>
+    <style>
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse-sun {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes glowPulse {
+            0%, 100% {
+                text-shadow: 
+                    0 0 20px rgba(251, 191, 36, 0.5),
+                    0 0 40px rgba(251, 146, 60, 0.3),
+                    0 0 60px rgba(251, 191, 36, 0.2);
+            }
+            50% {
+                text-shadow: 
+                    0 0 30px rgba(251, 191, 36, 0.8),
+                    0 0 60px rgba(251, 146, 60, 0.5),
+                    0 0 90px rgba(251, 191, 36, 0.3);
+            }
+        }
+
+        @keyframes floatTitle {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) translateX(0px);
+            }
+            33% {
+                transform: translateY(-20px) translateX(10px);
+            }
+            66% {
+                transform: translateY(-10px) translateX(-10px);
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes progressBar {
+            from {
+                transform: scaleX(0);
+            }
+            to {
+                transform: scaleX(1);
+            }
+        }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px rgba(251, 146, 60, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateZ(0);
+            will-change: transform, box-shadow;
+        }
+
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 12px 40px rgba(251, 146, 60, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .glass-card-dark {
+            background: rgba(255, 251, 235, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+        }
+
+        /* Magnetic Button Effect */
+        .btn-magnetic {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .btn-magnetic::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn-magnetic:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-magnetic:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(251, 146, 60, 0.3);
+        }
+
+        .btn-magnetic:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* Ripple Effect */
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            pointer-events: none;
+            animation: ripple 0.6s ease-out;
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b, #fb923c, #ea580c);
+            transform-origin: left;
+            transform: scaleX(0);
+            z-index: 9999;
+            box-shadow: 0 2px 10px rgba(251, 146, 60, 0.5);
+        }
+
+        /* Enhanced Focus States */
+        button:focus-visible,
+        input:focus-visible,
+        textarea:focus-visible {
+            outline: 3px solid rgba(251, 191, 36, 0.5);
+            outline-offset: 2px;
+        }
+
+        /* Smooth Transitions - Optimized to reduce repaints */
+        button, a, input, textarea, .glass-card, .hover-lift, .btn-magnetic {
+            transition-property: transform, box-shadow, background-color, border-color, opacity;
+            transition-duration: 0.3s;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Hover Lift Effect */
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px) translateZ(0);
+            box-shadow: 0 20px 40px rgba(251, 146, 60, 0.2);
+        }
+
+        /* Shimmer Effect */
+        .shimmer {
+            background: linear-gradient(
+                90deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            background-size: 1000px 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        /* Icon Rotation */
+        .rotate-on-hover {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .rotate-on-hover:hover {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        /* Gradient Border */
+        .gradient-border {
+            position: relative;
+            background: white;
+            border-radius: 1.5rem;
+        }
+
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 1.5rem;
+            padding: 2px;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #fb923c, #ea580c);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gradient-border:hover::before {
+            opacity: 1;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 1rem 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border-left: 4px solid #fbbf24;
+            animation: slideDown 0.3s ease-out;
+            z-index: 10000;
+            max-width: 400px;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(251, 191, 36, 0.2);
+            border-top-color: #fbbf24;
+            border-radius: 50%;
+            animation: spin-slow 1s linear infinite;
+        }
+
+        /* Card Glow on Hover */
+        .card-glow {
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-glow::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            opacity: 0;
+            background: radial-gradient(circle at center, rgba(251, 191, 36, 0.2), transparent 70%);
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .card-glow:hover::after {
+            opacity: 1;
+        }
+
+        /* 3D Scene Setup */
+        .scene-3d {
+            perspective: 1200px;
+            perspective-origin: 50% 50%;
+            transform-style: preserve-3d;
+        }
+
+        /* Depth Layers */
+        .depth-layer-far {
+            transform: translateZ(-400px) scale(1.4);
+            opacity: 0.25;
+        }
+
+        .depth-layer-mid {
+            transform: translateZ(-200px) scale(1.2);
+            opacity: 0.5;
+        }
+
+        .depth-layer-near {
+            transform: translateZ(-80px) scale(1.08);
+            opacity: 0.75;
+        }
+
+        .spinning-sun {
+            animation: pulse-sun 8s ease-in-out infinite;
+            will-change: opacity;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .fade-in-left {
+            animation: fadeInLeft 0.6s ease-out forwards;
+        }
+
+        .fade-in-right {
+            animation: fadeInRight 0.6s ease-out forwards;
+        }
+
+        .fade-in-scale {
+            animation: fadeInScale 0.6s ease-out forwards;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stagger-item {
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                135deg,
+                #fbbf24 0%,
+                #f59e0b 25%,
+                #fb923c 50%,
+                #ea580c 75%,
+                #fb923c 100%
+            );
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease infinite, glowPulse 3s ease-in-out infinite, floatTitle 6s ease-in-out infinite;
+            font-weight: 900;
+            letter-spacing: -0.02em;
+            position: relative;
+            display: inline-block;
+            text-shadow: 
+                0 1px 0 #f59e0b,
+                0 2px 0 #fb923c,
+                0 3px 0 #ea580c,
+                0 4px 0 #dc2626,
+                0 5px 0 #b91c1c,
+                0 6px 1px rgba(0,0,0,.1),
+                0 0 5px rgba(251,191,36,.3),
+                0 1px 3px rgba(0,0,0,.3),
+                0 3px 5px rgba(0,0,0,.2),
+                0 5px 10px rgba(0,0,0,.25),
+                0 10px 20px rgba(251,146,60,.4),
+                0 20px 40px rgba(251,191,36,.2);
+            transform-style: preserve-3d;
+            filter: drop-shadow(0 25px 50px rgba(251, 146, 60, 0.3));
+        }
+        
+        .gradient-text::before {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            background: linear-gradient(
+                135deg,
+                #92400e 0%,
+                #78350f 50%,
+                #451a03 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transform: translateZ(-50px) scale(1.01);
+            opacity: 0.6;
+            filter: blur(2px);
+        }
+        
+        .gradient-text::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 2;
+            background: linear-gradient(
+                180deg,
+                rgba(255,255,255,0.9) 0%,
+                rgba(255,255,255,0.4) 40%,
+                rgba(255,255,255,0) 60%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            mix-blend-mode: overlay;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+        }
+
+        h1 {
+            font-size: 10rem;
+            font-weight: 900;
+            line-height: 0.95;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 6rem;
+            }
+            h2 {
+                font-size: 1.875rem;
+            }
+            h3 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-zinc-900">
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Spinning Sun Background with 3D Depth -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden scene-3d">
+        <!-- Atmospheric fog gradient overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-amber-50/10 to-orange-50/20 pointer-events-none" style="z-index: 10;"></div>
+        
+        <!-- Far depth fog layer -->
+        <div class="absolute inset-0 pointer-events-none depth-layer-far" style="background: radial-gradient(circle at 50% 30%, rgba(251, 191, 36, 0.08) 0%, transparent 60%);"></div>
+        
+        <div id="spinning-sun" class="spinning-sun absolute top-1/4 right-1/4 w-[600px] h-[600px] opacity-10">
+            <svg viewBox="0 0 200 200" class="w-full h-full">
+                <defs>
+                    <radialGradient id="sunGradient" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#FFF4E6" stop-opacity="1" />
+                        <stop offset="30%" stop-color="#FDB81E" stop-opacity="0.9" />
+                        <stop offset="60%" stop-color="#F59E0B" stop-opacity="0.7" />
+                        <stop offset="100%" stop-color="#D97706" stop-opacity="0.3" />
+                    </radialGradient>
+                    <radialGradient id="coreGradient" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#FFFBEB" stop-opacity="1" />
+                        <stop offset="50%" stop-color="#FEF3C7" stop-opacity="0.9" />
+                        <stop offset="100%" stop-color="#FDE68A" stop-opacity="0.7" />
+                    </radialGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                
+                <!-- Outer glow -->
+                <circle cx="100" cy="100" r="45" fill="url(#sunGradient)" opacity="0.4" filter="url(#glow)" />
+                
+                <!-- Sun core -->
+                <circle cx="100" cy="100" r="38" fill="url(#coreGradient)" filter="url(#glow)" />
+                
+                <!-- Primary sun rays (8 main directions) -->
+                <g stroke-linecap="round" filter="url(#glow)">
+                    <line x1="100" y1="50" x2="100" y2="18" stroke="#FDB81E" stroke-width="5" opacity="0.8" />
+                    <line x1="128" y1="62" x2="150" y2="45" stroke="#FDB81E" stroke-width="5" opacity="0.8" />
+                    <line x1="150" y1="100" x2="182" y2="100" stroke="#FDB81E" stroke-width="5" opacity="0.8" />
+                    <line x1="138" y1="138" x2="155" y2="155" stroke="#FDB81E" stroke-width="5" opacity="0.8" />
+                    <line x1="100" y1="150" x2="100" y2="182" stroke="#FDB81E" stroke-width="5" opacity="0.8" />
+                    <line x1="62" y1="138" x2="45" y2="155" stroke="#FDB81E" stroke-width="5" opacity="0.8" />
+                    <line x1="50" y1="100" x2="18" y2="100" stroke="#FDB81E" stroke-width="5" opacity="0.8" />
+                    <line x1="62" y1="62" x2="45" y2="45" stroke="#FDB81E" stroke-width="5" opacity="0.8" />
+                </g>
+                
+                <!-- Secondary rays (shorter, between main rays) -->
+                <g stroke-linecap="round" opacity="0.6">
+                    <line x1="114" y1="54" x2="122" y2="30" stroke="#F59E0B" stroke-width="3" />
+                    <line x1="146" y1="86" x2="170" y2="78" stroke="#F59E0B" stroke-width="3" />
+                    <line x1="146" y1="114" x2="170" y2="122" stroke="#F59E0B" stroke-width="3" />
+                    <line x1="114" y1="146" x2="122" y2="170" stroke="#F59E0B" stroke-width="3" />
+                    <line x1="86" y1="146" x2="78" y2="170" stroke="#F59E0B" stroke-width="3" />
+                    <line x1="54" y1="114" x2="30" y2="122" stroke="#F59E0B" stroke-width="3" />
+                    <line x1="54" y1="86" x2="30" y2="78" stroke="#F59E0B" stroke-width="3" />
+                    <line x1="86" y1="54" x2="78" y2="30" stroke="#F59E0B" stroke-width="3" />
+                </g>
+                
+                <!-- Inner decorative circle -->
+                <circle cx="100" cy="100" r="28" fill="none" stroke="#FBBF24" stroke-width="1.5" opacity="0.5" />
+            </svg>
+        </div>
+        
+        <!-- Floating decorative elements with depth layers -->
+        <div class="parallax-layer-1 depth-layer-far absolute top-[10%] left-[5%] w-32 h-32 rounded-full bg-gradient-to-br from-amber-100/30 to-orange-100/20 blur-2xl" style="animation: float 15s ease-in-out infinite;"></div>
+        <div class="parallax-layer-2 depth-layer-mid absolute top-[60%] left-[80%] w-48 h-48 rounded-full bg-gradient-to-br from-orange-100/20 to-amber-100/10 blur-3xl" style="animation: float 20s ease-in-out infinite 2s;"></div>
+        <div class="parallax-layer-1 depth-layer-far absolute top-[40%] left-[15%] w-24 h-24 rounded-full bg-gradient-to-br from-amber-200/20 to-orange-200/10 blur-xl" style="animation: float 18s ease-in-out infinite 4s;"></div>
+        <div class="parallax-layer-3 depth-layer-near absolute top-[80%] left-[60%] w-40 h-40 rounded-full bg-gradient-to-br from-orange-100/15 to-amber-100/10 blur-2xl" style="animation: float 22s ease-in-out infinite 1s;"></div>
+        <div class="parallax-layer-2 depth-layer-mid absolute top-[25%] left-[70%] w-20 h-20 rounded-full bg-gradient-to-br from-amber-100/25 to-orange-100/15 blur-xl" style="animation: float 16s ease-in-out infinite 3s;"></div>
+        
+        <!-- Additional depth particles -->
+        <div class="parallax-layer-3 depth-layer-near absolute top-[15%] left-[45%] w-16 h-16 rounded-full bg-gradient-to-br from-yellow-100/20 to-amber-100/15 blur-lg" style="animation: float 14s ease-in-out infinite 5s;"></div>
+        <div class="parallax-layer-1 depth-layer-far absolute top-[70%] left-[20%] w-28 h-28 rounded-full bg-gradient-to-br from-orange-100/25 to-amber-100/15 blur-2xl" style="animation: float 19s ease-in-out infinite 6s;"></div>
+        <div class="parallax-layer-2 depth-layer-mid absolute top-[50%] left-[85%] w-36 h-36 rounded-full bg-gradient-to-br from-amber-100/18 to-yellow-100/12 blur-3xl" style="animation: float 21s ease-in-out infinite 2.5s;"></div>
+    </div>
+
+    <!-- Hero Section with Atmospheric Depth -->
+    <section class="relative z-10 px-6 py-32 md:py-48" style="scroll-behavior: smooth;">
+        <!-- Atmospheric gradient layer -->
+        <div class="absolute inset-0 bg-gradient-to-b from-white/0 via-amber-50/5 to-orange-50/10 pointer-events-none -z-10"></div>
+        <div class="max-w-7xl mx-auto">
+            <div class="fade-in-up text-center space-y-12">
+                <h1 class="gradient-text max-w-6xl mx-auto py-8" style="font-size: clamp(3.5rem, 7vw, 8rem) !important;">
+                    Hello Sunshine
+                </h1>
+                
+                <p class="text-zinc-700 max-w-3xl mx-auto text-xl md:text-2xl">
+                    An intergenerational program connecting adults 60+ with young adults in their 20s to reduce loneliness, share learning, and build lasting relationships.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 justify-center pt-4">
+                    <button class="btn-magnetic border-2 border-amber-600 text-amber-700 hover:bg-amber-50 rounded-full px-8 py-4 font-semibold text-lg shadow-lg hover:shadow-2xl relative overflow-hidden group">
+                        <span class="relative z-10 flex items-center gap-2">
+                            Learn More
+                            <svg class="w-5 h-5 rotate-on-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Concept with Enhanced Depth -->
+    <section class="relative z-10 px-6 py-20 bg-gradient-to-b from-transparent via-zinc-100/50 to-transparent">
+        <!-- Multi-layer atmospheric depth -->
+        <div class="absolute inset-0 bg-gradient-to-b from-amber-50/0 via-orange-50/5 to-amber-50/0 pointer-events-none -z-10"></div>
+        <div class="absolute inset-0 bg-radial-gradient pointer-events-none -z-10" style="background: radial-gradient(ellipse at 30% 50%, rgba(251, 191, 36, 0.03) 0%, transparent 70%);"></div>
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="animate-on-scroll fade-in-left space-y-6">
+                    <h2 class="text-amber-600 text-4xl md:text-5xl font-bold">Why Hello Sunshine?</h2>
+                    <p class="text-zinc-700">
+                        Creates intentional opportunities for connection, learning, and wellness.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3 stagger-item" style="transition-delay: 0.1s">
+                            <span class="text-amber-600 font-bold text-lg">•</span>
+                            <div>
+                                <p class="text-zinc-700"><strong class="text-amber-700">Seniors bring:</strong> wisdom, mentorship, and spunk</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3 stagger-item" style="transition-delay: 0.2s">
+                            <span class="text-amber-600 font-bold text-lg">•</span>
+                            <div>
+                                <p class="text-zinc-700"><strong class="text-amber-700">Young adults bring:</strong> energy, fresh perspectives, tech skills</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-3 stagger-item" style="transition-delay: 0.3s">
+                            <span class="text-amber-600 font-bold text-lg">•</span>
+                            <div>
+                                <p class="text-zinc-700"><strong class="text-amber-700">Together we create:</strong> mutual respect, belonging, and stronger communities</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="glass-card-dark border border-amber-200 rounded-2xl p-6 card-glow">
+                        <p class="text-amber-800 italic font-medium text-center">
+                            "Connection is why we're here; it is what gives purpose and meaning to our lives." <span class="whitespace-nowrap">- Brené Brown</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="animate-on-scroll fade-in-right">
+                    <div class="glass-card hover-lift rounded-3xl overflow-hidden border border-amber-200 shadow-2xl bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 p-12 flex items-center justify-center relative">
+                        <!-- Animated background particles -->
+                        <div class="absolute inset-0 overflow-hidden opacity-30">
+                            <div class="absolute w-1 h-1 bg-amber-300 rounded-full animate-pulse" style="top: 20%; left: 15%; animation-duration: 3s;"></div>
+                            <div class="absolute w-1 h-1 bg-orange-300 rounded-full animate-pulse" style="top: 40%; left: 80%; animation-duration: 2.5s; animation-delay: 0.5s;"></div>
+                            <div class="absolute w-0.5 h-0.5 bg-yellow-300 rounded-full animate-pulse" style="top: 60%; left: 25%; animation-duration: 4s; animation-delay: 1s;"></div>
+                            <div class="absolute w-1 h-1 bg-amber-400 rounded-full animate-pulse" style="top: 75%; left: 70%; animation-duration: 3.5s; animation-delay: 1.5s;"></div>
+                            <div class="absolute w-0.5 h-0.5 bg-orange-200 rounded-full animate-pulse" style="top: 30%; left: 50%; animation-duration: 2.8s; animation-delay: 0.8s;"></div>
+                        </div>
+                        
+                        <svg viewBox="0 0 200 200" class="w-full h-auto max-w-md relative z-10">
+                            <defs>
+                                <radialGradient id="sunGradient2" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#FFF4E6" stop-opacity="1" />
+                                    <stop offset="30%" stop-color="#FDB81E" stop-opacity="0.9" />
+                                    <stop offset="60%" stop-color="#F59E0B" stop-opacity="0.7" />
+                                    <stop offset="100%" stop-color="#D97706" stop-opacity="0.3" />
+                                </radialGradient>
+                                <radialGradient id="coreGradient2" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#FFFBEB" stop-opacity="1">
+                                        <animate attributeName="stop-color" values="#FFFBEB;#FFFFFF;#FFFBEB" dur="3s" repeatCount="indefinite"/>
+                                    </stop>
+                                    <stop offset="50%" stop-color="#FEF3C7" stop-opacity="0.9">
+                                        <animate attributeName="stop-color" values="#FEF3C7;#FDE68A;#FEF3C7" dur="3s" repeatCount="indefinite"/>
+                                    </stop>
+                                    <stop offset="100%" stop-color="#FDE68A" stop-opacity="0.7">
+                                        <animate attributeName="stop-color" values="#FDE68A;#FBBF24;#FDE68A" dur="3s" repeatCount="indefinite"/>
+                                    </stop>
+                                </radialGradient>
+                                <radialGradient id="innerGlow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8" />
+                                    <stop offset="70%" stop-color="#FEF3C7" stop-opacity="0.3" />
+                                    <stop offset="100%" stop-color="#FDE68A" stop-opacity="0" />
+                                </radialGradient>
+                                <radialGradient id="coronaGradient" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#FDB81E" stop-opacity="0.1" />
+                                    <stop offset="50%" stop-color="#F59E0B" stop-opacity="0.2" />
+                                    <stop offset="100%" stop-color="#D97706" stop-opacity="0" />
+                                </radialGradient>
+                                <filter id="glow2" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur"/>
+                                    <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1.5 0" result="intensify"/>
+                                    <feMerge>
+                                        <feMergeNode in="intensify"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                                <filter id="softGlow">
+                                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                                <filter id="ultraSoftGlow">
+                                    <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+                                    <feMerge>
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            
+                            <!-- Ultra outer corona -->
+                            <circle cx="100" cy="100" r="70" fill="url(#coronaGradient)" opacity="0.2" filter="url(#ultraSoftGlow)">
+                                <animate attributeName="opacity" values="0.2;0.35;0.2" dur="6s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                <animate attributeName="r" values="70;75;70" dur="6s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                            </circle>
+                            
+            <!-- Outer atmospheric glow -->
+            <circle cx="100" cy="100" r="55" fill="url(#sunGradient2)" opacity="0.3" filter="url(#softGlow)">
+                <animate attributeName="opacity" values="0.3;0.5;0.3" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                <animate attributeName="r" values="55;58;55" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+            </circle>            <!-- Middle glow layer -->
+            <circle cx="100" cy="100" r="45" fill="url(#sunGradient2)" opacity="0.6" filter="url(#glow2)">
+                <animate attributeName="opacity" values="0.6;0.8;0.6" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                <animate attributeName="r" values="45;47;45" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+            </circle>            <!-- Sun core with enhanced animation -->
+            <circle cx="100" cy="100" r="38" fill="url(#coreGradient2)" filter="url(#glow2)">
+                <animate attributeName="r" values="38;40;39;40;38" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1; 0.42 0 0.58 1"/>
+            </circle>            <!-- Inner highlight -->
+            <circle cx="100" cy="100" r="30" fill="url(#innerGlow)" opacity="0.8">
+                <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+            </circle>                            <!-- Enhanced sparkle effects -->
+                            <circle cx="90" cy="90" r="2" fill="#FFFFFF" opacity="0">
+                                <animate attributeName="opacity" values="0;1;0" dur="3s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                <animate attributeName="r" values="2;2.5;2" dur="3s" begin="0s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                            </circle>
+                            <circle cx="110" cy="95" r="1.5" fill="#FFFFFF" opacity="0">
+                                <animate attributeName="opacity" values="0;0.8;0" dur="3.5s" begin="0.5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                <animate attributeName="r" values="1.5;2;1.5" dur="3.5s" begin="0.5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                            </circle>
+                            <circle cx="105" cy="110" r="2" fill="#FFFFFF" opacity="0">
+                                <animate attributeName="opacity" values="0;1;0" dur="4s" begin="1s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                <animate attributeName="r" values="2;2.5;2" dur="4s" begin="1s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                            </circle>
+                            <circle cx="95" cy="105" r="1.2" fill="#FEF3C7" opacity="0">
+                                <animate attributeName="opacity" values="0;0.7;0" dur="3.2s" begin="0.3s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                            </circle>
+                            <circle cx="108" cy="102" r="1" fill="#FDE68A" opacity="0">
+                                <animate attributeName="opacity" values="0;0.6;0" dur="3.8s" begin="0.7s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                            </circle>
+                            
+                            <!-- Tertiary tiny rays (extra detail) -->
+                            <g stroke-linecap="round" opacity="0.4">
+                                <line x1="107" y1="52" x2="107" y2="24" stroke="#FDE68A" stroke-width="2">
+                                    <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                </line>
+                                <line x1="135" y1="72" x2="155" y2="58" stroke="#FDE68A" stroke-width="2">
+                                    <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" begin="0.4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                </line>
+                                <line x1="148" y1="107" x2="176" y2="107" stroke="#FDE68A" stroke-width="2">
+                                    <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" begin="0.8s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                </line>
+                                <line x1="128" y1="128" x2="142" y2="142" stroke="#FDE68A" stroke-width="2">
+                                    <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" begin="1.2s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                </line>
+                                <line x1="93" y1="148" x2="93" y2="176" stroke="#FDE68A" stroke-width="2">
+                                    <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" begin="1.6s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                </line>
+                                <line x1="72" y1="128" x2="58" y2="142" stroke="#FDE68A" stroke-width="2">
+                                    <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" begin="2s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                </line>
+                                <line x1="52" y1="93" x2="24" y2="93" stroke="#FDE68A" stroke-width="2">
+                                    <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" begin="2.4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                </line>
+                                <line x1="72" y1="65" x2="58" y2="52" stroke="#FDE68A" stroke-width="2">
+                                    <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4s" begin="2.8s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                </line>
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 100 100"
+                                    to="360 100 100"
+                                    dur="40s"
+                                    repeatCount="indefinite"/>
+                            </g>
+                            
+                            <!-- Primary sun rays (8 main directions) with enhanced animation -->
+                            <g stroke-linecap="round" filter="url(#glow2)">
+                                <line x1="100" y1="50" x2="100" y2="18" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" repeatCount="indefinite"/>
+                                    <animate attributeName="y2" values="18;15;18" dur="2s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="128" y1="62" x2="150" y2="45" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="0.25s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="0.25s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="150" y1="100" x2="182" y2="100" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="x2" values="182;185;182" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="138" y1="138" x2="155" y2="155" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="0.75s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="0.75s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="100" y1="150" x2="100" y2="182" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="1s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="1s" repeatCount="indefinite"/>
+                                    <animate attributeName="y2" values="182;185;182" dur="2s" begin="1s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="62" y1="138" x2="45" y2="155" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="1.25s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="1.25s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="50" y1="100" x2="18" y2="100" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="x2" values="18;15;18" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="62" y1="62" x2="45" y2="45" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="1.75s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="1.75s" repeatCount="indefinite"/>
+                                </line>
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 100 100"
+                                    to="360 100 100"
+                                    dur="30s"
+                                    repeatCount="indefinite"/>
+                            </g>
+                            
+                            <!-- Secondary rays (shorter, between main rays) -->
+                            <g stroke-linecap="round" opacity="0.7">
+                                <line x1="114" y1="54" x2="122" y2="30" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="3;4;3" dur="2.5s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="146" y1="86" x2="170" y2="78" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="0.3s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="3;4;3" dur="2.5s" begin="0.3s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="146" y1="114" x2="170" y2="122" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="3;4;3" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="114" y1="146" x2="122" y2="170" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="0.9s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="3;4;3" dur="2.5s" begin="0.9s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="86" y1="146" x2="78" y2="170" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="1.2s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="3;4;3" dur="2.5s" begin="1.2s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="54" y1="114" x2="30" y2="122" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="1.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="3;4;3" dur="2.5s" begin="1.5s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="54" y1="86" x2="30" y2="78" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="1.8s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="3;4;3" dur="2.5s" begin="1.8s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="86" y1="54" x2="78" y2="30" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="2.1s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="3;4;3" dur="2.5s" begin="2.1s" repeatCount="indefinite"/>
+                                </line>
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 100 100"
+                                    to="-360 100 100"
+                                    dur="20s"
+                                    repeatCount="indefinite"/>
+                            </g>
+                            
+                            <!-- Inner decorative circles with enhanced detail -->
+                            <circle cx="100" cy="100" r="28" fill="none" stroke="#FBBF24" stroke-width="1.5" opacity="0.6">
+                                <animate attributeName="r" values="28;30;28" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                <animate attributeName="opacity" values="0.6;0.8;0.6" dur="4s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                            </circle>
+                            <circle cx="100" cy="100" r="20" fill="none" stroke="#FEF3C7" stroke-width="1" opacity="0.4">
+                                <animate attributeName="r" values="20;22;20" dur="4.5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                <animate attributeName="opacity" values="0.4;0.6;0.4" dur="4.5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                            </circle>
+                            <circle cx="100" cy="100" r="34" fill="none" stroke="#F59E0B" stroke-width="1" opacity="0.3" stroke-dasharray="4 6">
+                                <animate attributeName="r" values="34;36;34" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                <animate attributeName="opacity" values="0.3;0.5;0.3" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines="0.42 0 0.58 1; 0.42 0 0.58 1"/>
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 100 100"
+                                    to="360 100 100"
+                                    dur="15s"
+                                    repeatCount="indefinite"/>
+                            </circle>
+                        </svg>
+                    </div>
+                </div>
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="1.25s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="1.25s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="50" y1="100" x2="18" y2="100" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="62" y1="62" x2="45" y2="45" stroke="#FDB81E" stroke-width="5" opacity="0.9">
+                                    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" begin="1.75s" repeatCount="indefinite"/>
+                                    <animate attributeName="stroke-width" values="5;6;5" dur="2s" begin="1.75s" repeatCount="indefinite"/>
+                                </line>
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 100 100"
+                                    to="360 100 100"
+                                    dur="30s"
+                                    repeatCount="indefinite"/>
+                            </g>
+                            
+                            <!-- Secondary rays (shorter, between main rays) -->
+                            <g stroke-linecap="round" opacity="0.7">
+                                <line x1="114" y1="54" x2="122" y2="30" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="146" y1="86" x2="170" y2="78" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="0.3s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="146" y1="114" x2="170" y2="122" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="0.6s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="114" y1="146" x2="122" y2="170" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="0.9s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="86" y1="146" x2="78" y2="170" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="1.2s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="54" y1="114" x2="30" y2="122" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="1.5s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="54" y1="86" x2="30" y2="78" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="1.8s" repeatCount="indefinite"/>
+                                </line>
+                                <line x1="86" y1="54" x2="78" y2="30" stroke="#F59E0B" stroke-width="3">
+                                    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="2.5s" begin="2.1s" repeatCount="indefinite"/>
+                                </line>
+                                <animateTransform
+                                    attributeName="transform"
+                                    attributeType="XML"
+                                    type="rotate"
+                                    from="0 100 100"
+                                    to="-360 100 100"
+                                    dur="20s"
+                                    repeatCount="indefinite"/>
+                            </g>
+                            
+                            <!-- Inner decorative circles -->
+                            <circle cx="100" cy="100" r="28" fill="none" stroke="#FBBF24" stroke-width="1.5" opacity="0.6">
+                                <animate attributeName="r" values="28;30;28" dur="2.5s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.6;0.8;0.6" dur="2.5s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="100" cy="100" r="20" fill="none" stroke="#FEF3C7" stroke-width="1" opacity="0.4">
+                                <animate attributeName="r" values="20;22;20" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.4;0.6;0.4" dur="3s" repeatCount="indefinite"/>
+                            </circle>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Simple Habits with Depth -->
+    <section class="relative z-10 px-6 py-20">
+        <!-- Depth fog layers -->
+        <div class="absolute inset-0 bg-gradient-to-b from-orange-50/8 via-transparent to-amber-50/8 pointer-events-none -z-10"></div>
+        <div class="max-w-6xl mx-auto">
+            <div class="animate-on-scroll fade-in-up text-center mb-16">
+                <h2 class="text-amber-600 mb-4 text-4xl md:text-5xl font-bold">The Sunshine Includes</h2>
+                <p class="text-zinc-700 max-w-2xl mx-auto">
+                    A comprehensive intergenerational initiative designed to reduce social isolation, expand digital inclusion, and strengthen community well-being.
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="animate-on-scroll fade-in-up glass-card p-10 rounded-3xl border border-zinc-200 shadow-lg hover-lift">
+                    <ul class="space-y-6">
+                        <li class="flex items-start gap-4 stagger-item hover-lift p-3 -mx-3 rounded-xl" style="transition-delay: 0.1s">
+                            <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-lg rotate-on-hover">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-amber-700 text-xl font-semibold mb-1">Weekly check-ins via call or text</h3>
+                                <p class="text-zinc-600">Stay connected through regular communication to reduce feelings of isolation and maintain meaningful contact.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start gap-4 stagger-item hover-lift p-3 -mx-3 rounded-xl" style="transition-delay: 0.2s">
+                            <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-lg rotate-on-hover">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-amber-700 text-xl font-semibold mb-1">Workshops</h3>
+                                <p class="text-zinc-600">Creative outlets that boost social connection and engagement, mental health, and well-being through structured, supportive, and enjoyable weekly sessions.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start gap-4 stagger-item" style="transition-delay: 0.3s">
+                            <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-amber-700 text-xl font-semibold mb-1">Wellness activities</h3>
+                                <p class="text-zinc-600">Physical and mental health activities designed for all ages and abilities, focusing on stress management, social connection, and cognitive health.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start gap-4 stagger-item" style="transition-delay: 0.4s">
+                            <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-amber-700 text-xl font-semibold mb-1">Entertainment</h3>
+                                <p class="text-zinc-600">Social events and activities that bring mutual joy, shared learning, and emotional connection.</p>
+                            </div>
+                        </li>
+                        
+                        <li class="flex items-start gap-4 stagger-item" style="transition-delay: 0.5s">
+                            <div class="w-10 h-10 bg-gradient-to-br from-amber-500 to-orange-600 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="text-amber-700 text-xl font-semibold mb-1">A shared meal</h3>
+                                <p class="text-zinc-600">Bridges generational gaps, reduces isolation, fosters emotional well-being, and is enjoyable.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="relative z-10 px-6 py-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="animate-on-scroll fade-in-up text-center mb-12">
+                <p class="text-zinc-700 max-w-2xl mx-auto mb-6">
+                    Have thoughts on intergenerational connection? Share how bringing generations together can reduce generational barriers.
+                </p>
+                <div class="flex gap-4 justify-center flex-wrap">
+                    <a href="#donate" class="px-8 py-3 bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white rounded-full font-semibold shadow-lg shadow-rose-500/30 transition-all hover:shadow-xl hover:shadow-rose-500/40 hover:scale-105">
+                        DONATE
+                    </a>
+                    <a href="#survey" class="px-8 py-3 bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white rounded-full font-semibold shadow-lg shadow-teal-500/30 transition-all hover:shadow-xl hover:shadow-teal-500/40 hover:scale-105">
+                        SHARE YOUR THOUGHTS
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Break -->
+    <section class="relative z-10 px-6 py-4">
+        <div class="max-w-2xl mx-auto">
+            <!-- Archives Section Title -->
+            <div class="animate-on-scroll fade-in-up text-center mb-12">
+                <h2 class="text-amber-600 mb-4 text-4xl md:text-5xl font-bold">Archives</h2>
+            </div>
+            
+            <div class="animate-on-scroll fade-in-scale rounded-2xl overflow-hidden border border-amber-200 shadow-xl">
+                <div class="scripps_iframe_embed" style="position:relative"><div style="display:block;width:100%;height:auto;padding-bottom:42%;"></div><iframe id="da-iframe" allowfullscale="" style="position:absolute;top:0;left:0;width:100%;height:100%;" border="0" height="100%" frameborder="0" webkitallowfullscreen="" allowfullscreen="" mozallowfullscreen="" scrolling="no" src="https://assets.scrippsdigital.com/cms/video/player.html?video=https://content.uplynk.com/f347d4ad60154b99942ad82724ccf629.m3u8&mp4=https://cf.cdn.uplynk.com/ause1/slices/f34/dbe20997a7104511baed3a1f2e443baf/f347d4ad60154b99942ad82724ccf629/f347d4ad60154b99942ad82724ccf629_e.mp4&autoplay=false&purl=/news/in-the-community/norfolk/new-program-pairs-seniors-young-adults-in-hampton-roads-to-help-combat-loneliness-and-isolation&ads.iu=/6088/ssp.wtkr/news/in-the-community/norfolk/new-program-pairs-seniors-young-adults-in-hampton-roads-to-help-combat-loneliness-and-isolation&ads.proxy=1&poster=https://cf.cdn.uplynk.com/ause1/slices/f34/dbe20997a7104511baed3a1f2e443baf/f347d4ad60154b99942ad82724ccf629/poster_299e1c766de44114a6330e98f617e2ed.jpg&title=Hello%2C%20Sunshine%3A%20New%20program%20pairs%20seniors%2C%20young%20adults%20in%20Hampton%20Roads%20to%20help%20combat%20loneliness%20and%20isolation&kw=&contplay=*recent&mute=0&tags=Homepage%2CHomepage%20Showcase%2CNews%2CHampton%2CNorfolk&section=Norfolk&cust_params=temp%3D%26weather%3D&host=wtkr.com&s=wtkr&env=production&ex=1" allow="autoplay; fullscreen"></iframe></div>
+            </div>
+            <p class="text-xs text-zinc-400 text-right mt-2 italic">WTKR - News 3</p>
+            
+            <!-- Article Content -->
+            <div class="mt-8 space-y-4 text-zinc-700 leading-relaxed text-lg">
+                <p class="animate-on-scroll fade-in-up">NORFOLK, Va.— Hello Sunshine is a new Hampton Roads initiative pairing older adults — <span class="text-amber-600 font-semibold">"wisers"</span> — with people in their twenties for a four-week <span class="text-amber-600 font-semibold">"buddy"</span> experience to combat loneliness across generations.</p>
+                
+                <!-- Read More Button -->
+                <div class="text-center">
+                    <button id="readMoreBtn" onclick="toggleReadMore()" class="text-amber-600 hover:text-amber-700 font-medium text-sm underline transition-colors">
+                        <span id="readMoreText">Read More</span>
+                    </button>
+                </div>
+
+                <!-- Expandable Content -->
+                <div id="expandableContent" class="hidden space-y-4">
+                    <p class="animate-on-scroll fade-in-up">Called Hello Sunshine, the program pairs older adults — referred to as <span class="text-amber-600 font-semibold">"wisers"</span> — with people in their early twenties for a four-week <span class="text-amber-600 font-semibold">"buddy"</span> experience. Starting Dec. 8, each pair will check in with one another via text on weekdays, and then meet in person for a group activity on Saturdays.</p>
+                    
+                    <p class="animate-on-scroll fade-in-up">The program began when Hampton resident Jocelyn Scott proposed the idea to her city council earlier this year. She explains that the post-COVID era saw marked increases in depression and isolation — not only among seniors, but also among young adults. She believes these two demographics, often overlooked together, could benefit greatly from intergenerational connection.</p>
+                    
+                    <p class="animate-on-scroll fade-in-up">One early participant, 22-year-old Carter Scott, said the friendship he struck with 75-year-old Pearl Ross took him by surprise. The two spend time together making funny videos, exchanging ideas, and connecting despite their age difference. <span class="italic text-zinc-600">"I think there has been something special with communicating with people that aren't my age group,"</span> Carter said.</p>
+                    
+                    <p class="animate-on-scroll fade-in-up">The program is running in partnership with The Healthy Living Center, a Norfolk non-profit focused on community health and wellness — including healthy cooking and lifestyle education. Their resources will be incorporated into Hello Sunshine's group activities.</p>
+                    
+                    <p class="animate-on-scroll fade-in-up">Organizers hope to expand Hello Sunshine after the first round, possibly involving local colleges so that students can participate for service credit.</p>
+                    
+                    <div class="mt-6 pt-4 border-t border-amber-200">
+                        <h3 class="text-xl font-bold text-amber-600 mb-3">Why it matters:</h3>
+                        <ul class="space-y-2 text-base">
+                            <li class="flex items-start gap-2">
+                                <span class="text-amber-600 font-bold mt-1">•</span>
+                                <span>Seniors and young adults alike have faced increased social isolation in recent years; this program acknowledges that loneliness doesn't only affect the elderly.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-amber-600 font-bold mt-1">•</span>
+                                <span>By fostering intergenerational friendships, Hello Sunshine offers mutual support, fresh perspectives, and the chance to learn from one another across generations.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-amber-600 font-bold mt-1">•</span>
+                                <span>Involving a health-oriented nonprofit adds a wellness dimension, potentially improving physical, emotional, and social health through shared activities.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-amber-600 font-bold mt-1">•</span>
+                                <span>Hello Sunshine represents a growing recognition in Hampton Roads that community health goes beyond physical well-being — mental and social wellness matter just as much.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-2xl md:text-3xl font-bold text-amber-600 text-center mt-6 mb-4 animate-on-scroll fade-in-up relative overflow-hidden" style="background: linear-gradient(90deg, #d97706 0%, #f59e0b 25%, #fbbf24 50%, #f59e0b 75%, #d97706 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 8s ease-in-out infinite;">
+                Jocelyn Scott tells Hampton City Council about Hello Sunshine
+            </h2>
+            <div class="animate-on-scroll fade-in-scale rounded-2xl overflow-hidden border border-amber-200 shadow-xl">
+                <div class="scripps_iframe_embed" style="position:relative"><div style="display:block;width:100%;height:auto;padding-bottom:42%;"></div><iframe id="da-iframe" allowfullscale="" style="position:absolute;top:0;left:0;width:100%;height:100%;" border="0" height="100%" frameborder="0" webkitallowfullscreen="" allowfullscreen="" mozallowfullscreen="" scrolling="no" src="https://assets.scrippsdigital.com/cms/video/player.html?video=https://content.uplynk.com/4594ec61fccd48de865f070e84b2ad1c.m3u8&mp4=https://cf.cdn.uplynk.com/ause1/slices/459/dbe20997a7104511baed3a1f2e443baf/4594ec61fccd48de865f070e84b2ad1c/4594ec61fccd48de865f070e84b2ad1c_e.mp4&autoplay=false&purl=/news/in-the-community/norfolk/new-program-pairs-seniors-young-adults-in-hampton-roads-to-help-combat-loneliness-and-isolation&ads.iu=/6088/ssp.wtkr/news/in-the-community/norfolk/new-program-pairs-seniors-young-adults-in-hampton-roads-to-help-combat-loneliness-and-isolation&ads.proxy=1&poster=https://cf.cdn.uplynk.com/ause1/slices/459/dbe20997a7104511baed3a1f2e443baf/4594ec61fccd48de865f070e84b2ad1c/poster_12c1283063714d3b95ffaf912869d33d.jpg&title=Jocelyn%20Scott%20tells%20Hampton%20City%20Council%20about%20Hello%20Sunshine&kw=%2Cnews&contplay=*recent&mute=0&tags=Homepage%2CHomepage%20Showcase%2CNews%2CHampton%2CNorfolk&section=Norfolk&cust_params=temp%3D%26weather%3D&host=wtkr.com&s=wtkr&env=production&ex=1" allow="autoplay; fullscreen"></iframe></div>
+            </div>
+            <p class="text-xs text-zinc-400 text-right mt-2 italic">WTKR - News 3</p>
+        </div>
+    </section>
+
+    <!-- Hypothesis Section with Atmospheric Depth -->
+    <section id="survey" class="relative z-10 px-6 py-20 bg-gradient-to-b from-transparent via-zinc-100/50 to-transparent" aria-labelledby="survey-heading" role="region">
+        <!-- Layered atmospheric fog -->
+        <div class="absolute inset-0 pointer-events-none -z-10">
+            <div class="absolute inset-0 bg-gradient-to-br from-amber-50/10 via-transparent to-orange-50/10"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-yellow-50/5 via-transparent to-amber-50/5"></div>
+        </div>
+        <div class="max-w-4xl mx-auto">
+            <div class="animate-on-scroll fade-in-up glass-card border border-zinc-200 rounded-3xl p-8 shadow-xl hover-lift">
+                <form class="space-y-8" id="hypothesisForm" role="form" aria-label="Intergenerational connection survey">
+                    <!-- Question 1 -->
+                    <fieldset class="space-y-4">
+                        <legend id="q1-legend" class="block text-amber-700 font-semibold text-lg">1) Are you open to participating in or supporting intergenerational connections between older adults and young adults?</legend>
+                        <div class="flex gap-6" role="radiogroup" aria-labelledby="q1-legend" aria-required="true">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="question1" value="yes" class="w-4 h-4 text-amber-600 focus:ring-amber-500" aria-label="Yes, I am open to intergenerational connections" required />
+                                <span class="text-zinc-700">Yes</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="question1" value="no" class="w-4 h-4 text-amber-600 focus:ring-amber-500" aria-label="No, I am not open to intergenerational connections" />
+                                <span class="text-zinc-700">No</span>
+                            </label>
+                        </div>
+                        
+                        <div>
+                            <label for="question1optional" class="block text-zinc-600 text-sm mb-2">Why or why not?</label>
+                            <textarea 
+                                id="question1optional" 
+                                name="question1optional"
+                                rows="3"
+                                placeholder="Share your thoughts..."
+                                aria-label="Optional details about your interest in intergenerational connection"
+                                class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all resize-none bg-white/50 backdrop-blur-sm hover:bg-white"
+                            ></textarea>
+                        </div>
+                    </fieldset>
+                    
+                    <!-- Question 2 -->
+                    <fieldset class="space-y-4">
+                        <legend id="q2-legend" class="block text-amber-700 font-semibold text-lg">2) Do you believe that bringing older adults and young adults together can help reduce loneliness and strengthen community belonging?</legend>
+                        <div class="flex gap-6" role="radiogroup" aria-labelledby="q2-legend" aria-required="true">
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="question2" value="yes" class="w-4 h-4 text-amber-600 focus:ring-amber-500" aria-label="Yes, it can reduce loneliness and strengthen community belonging" required />
+                                <span class="text-zinc-700">Yes</span>
+                            </label>
+                            <label class="flex items-center gap-2 cursor-pointer">
+                                <input type="radio" name="question2" value="no" class="w-4 h-4 text-amber-600 focus:ring-amber-500" aria-label="No, it cannot reduce loneliness or strengthen community belonging" />
+                                <span class="text-zinc-700">No</span>
+                            </label>
+                        </div>
+                        
+                        <div>
+                            <label for="question2optional" class="block text-zinc-600 text-sm mb-2">Why or why not?</label>
+                            <textarea 
+                                id="question2optional" 
+                                name="question2optional"
+                                rows="3"
+                                placeholder="Share your thoughts..."
+                                aria-label="Optional explanation about your belief on reducing loneliness through intergenerational connections"
+                                class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all resize-none bg-white/50 backdrop-blur-sm hover:bg-white"
+                            ></textarea>
+                        </div>
+                    </fieldset>
+                    
+                    <!-- Contact Information Section -->
+                    <fieldset class="space-y-4 pt-4 border-t border-zinc-200">
+                        <div class="mb-4">
+                            <h3 class="text-amber-700 font-semibold text-base mb-1">Contact Information</h3>
+                            <p class="text-zinc-600 text-sm">If you'd like us to follow up with you, please share your contact details.</p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="contactName" class="block text-zinc-600 text-sm mb-2">Name</label>
+                                <input 
+                                    type="text" 
+                                    id="contactName" 
+                                    name="contactName"
+                                    placeholder="Your name"
+                                    aria-label="Your full name"
+                                    autocomplete="name"
+                                    class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all bg-white/50 backdrop-blur-sm hover:bg-white"
+                                />
+                            </div>
+                            
+                            <div>
+                                <label for="contactEmail" class="block text-zinc-600 text-sm mb-2">Email</label>
+                                <input 
+                                    type="email" 
+                                    id="contactEmail" 
+                                    name="contactEmail"
+                                    placeholder="your.email@example.com"
+                                    aria-label="Your email address"
+                                    autocomplete="email"
+                                    class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all bg-white/50 backdrop-blur-sm hover:bg-white"
+                                />
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="contactPhone" class="block text-zinc-600 text-sm mb-2">Phone Number <span class="text-zinc-400 text-xs">(optional)</span></label>
+                            <input 
+                                type="tel" 
+                                id="contactPhone" 
+                                name="contactPhone"
+                                placeholder="(555) 123-4567"
+                                aria-label="Your phone number"
+                                autocomplete="tel"
+                                class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all bg-white/50 backdrop-blur-sm hover:bg-white"
+                            />
+                        </div>
+                    </fieldset>
+                    
+                    <button 
+                        type="submit"
+                        aria-label="Submit survey response"
+                        class="btn-magnetic w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white rounded-full px-8 py-4 font-semibold shadow-lg shadow-amber-500/30 text-lg"
+                    >
+                        <span class="relative z-10 flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            Submit
+                        </span>
+                    </button>
+                </form>
+                
+                <div id="submissionMessage" class="hidden mt-6 p-4 glass-card-dark border border-amber-200 rounded-xl text-amber-800 text-center" role="status" aria-live="polite">
+                    <div class="flex items-center justify-center gap-2">
+                        <svg class="w-6 h-6 text-amber-600" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        <span class="font-semibold">Thank you for sharing your thoughts! Your insights help us build stronger intergenerational connections.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 px-6 py-12 border-t border-zinc-200">
+        <div class="max-w-6xl mx-auto space-y-8">
+            <!-- Main Footer Message -->
+            <div class="text-center space-y-4">
+                <p class="text-zinc-600">
+                    Believing in what's possible when generations connect.
+                </p>
+                <p class="text-zinc-500 text-sm">
+                    © 2026 Hello Sunshine Project. Believing in possibilities when generations connect.
+                </p>
+                <div class="flex flex-col items-center gap-2">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 bg-amber-50 rounded-full border border-amber-200">
+                        <span class="text-amber-600 font-medium text-sm">Creator/Owner</span>
+                        <span class="text-amber-700 font-semibold">Jocelyn Scott</span>
+                    </div>
+                    <p class="text-lg">
+                        <a href="mailto:hellosunshineproject26@gmail.com" class="text-amber-600 hover:text-amber-700 font-medium transition-colors inline-flex items-center gap-1">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            hellosunshineproject26@gmail.com
+                        </a>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Fiduciary Sponsor Section -->
+            <div class="glass-card border border-amber-100 rounded-2xl p-6 max-w-3xl mx-auto">
+                <h3 class="text-amber-700 font-semibold text-base mb-3 text-center">Fiduciary Sponsor</h3>
+                <div class="text-center space-y-2">
+                    <p class="text-zinc-700 font-semibold text-sm">Dr. Olivia J. Newby, DNP, FNP-BC, CDCES, FAANP</p>
+                    <p class="text-zinc-600 text-sm">President, Healthy Living Center Norfolk</p>
+                    <p class="text-zinc-600 text-sm">Founder of SEEDS to Healthy Living, LLC</p>
+                    <div class="flex flex-wrap items-center justify-center gap-3 mt-4 text-xs">
+                        <a href="mailto:newby.hlc@gmail.com" class="text-amber-600 hover:text-amber-700 font-medium transition-colors flex items-center gap-1">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            newby.hlc@gmail.com
+                        </a>
+                        <span class="text-zinc-400">|</span>
+                        <a href="https://www.newbyseeds.com/#/" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:text-amber-700 font-medium transition-colors">
+                            www.newbyseeds.com
+                        </a>
+                        <span class="text-zinc-400">|</span>
+                        <a href="http://www.hlcnorfolk.com/" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:text-amber-700 font-medium transition-colors">
+                            www.hlcnorfolk.com
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Website Credit -->
+            <p class="text-zinc-400 text-sm text-center">
+                Website made by <a href="https://bitsandblueprints.com/" target="_blank" rel="noopener noreferrer" class="text-amber-600 hover:text-amber-700 font-medium transition-colors">bits & blueprints</a> | <a href="tel:757-218-4659" class="text-amber-600 hover:text-amber-700 font-medium transition-colors">757-218-4659</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll Progress Bar with debouncing
+        const scrollProgress = document.getElementById('scrollProgress');
+        let scrollTicking = false;
+        
+        function updateScrollProgress() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = scrollTop / docHeight;
+            scrollProgress.style.transform = `scaleX(${scrollPercent})`;
+            scrollTicking = false;
+        }
+        
+        window.addEventListener('scroll', function() {
+            if (!scrollTicking) {
+                window.requestAnimationFrame(updateScrollProgress);
+                scrollTicking = true;
+            }
+        }, { passive: true });
+        
+        // Read More Toggle Function
+        function toggleReadMore() {
+            const content = document.getElementById('expandableContent');
+            const btnText = document.getElementById('readMoreText');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                btnText.textContent = 'Read Less';
+            } else {
+                content.classList.add('hidden');
+                btnText.textContent = 'Read More';
+            }
+        }
+        
+        // Ripple Effect for Buttons
+        function createRipple(event) {
+            const button = event.currentTarget;
+            const ripple = document.createElement('span');
+            const diameter = Math.max(button.clientWidth, button.clientHeight);
+            const radius = diameter / 2;
+            
+            ripple.style.width = ripple.style.height = `${diameter}px`;
+            ripple.style.left = `${event.clientX - button.offsetLeft - radius}px`;
+            ripple.style.top = `${event.clientY - button.offsetTop - radius}px`;
+            ripple.classList.add('ripple');
+            
+            const existingRipple = button.querySelector('.ripple');
+            if (existingRipple) {
+                existingRipple.remove();
+            }
+            
+            button.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        }
+        
+        document.querySelectorAll('.btn-magnetic').forEach(button => {
+            button.addEventListener('click', createRipple);
+        });
+        
+        // Magnetic Button Effect with throttling
+        document.querySelectorAll('.btn-magnetic').forEach(button => {
+            let magneticTicking = false;
+            
+            button.addEventListener('mousemove', (e) => {
+                if (!magneticTicking) {
+                    window.requestAnimationFrame(() => {
+                        const rect = button.getBoundingClientRect();
+                        const x = e.clientX - rect.left - rect.width / 2;
+                        const y = e.clientY - rect.top - rect.height / 2;
+                        
+                        button.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) scale(1.02)`;
+                        magneticTicking = false;
+                    });
+                    magneticTicking = true;
+                }
+            });
+            
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = '';
+            });
+        });
+        
+        // Toast Notification
+        function showToast(message, duration = 3000) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-amber-600 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <p class="text-zinc-800 font-medium">${message}</p>
+                </div>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.animation = 'fadeInUp 0.3s ease-out reverse';
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, duration);
+        }
+        
+        // Enhanced parallax effect with depth, fade, and blur - Optimized
+        const spinningSun = document.getElementById('spinning-sun');
+        const parallaxLayer1 = document.querySelectorAll('.parallax-layer-1');
+        const parallaxLayer2 = document.querySelectorAll('.parallax-layer-2');
+        const parallaxLayer3 = document.querySelectorAll('.parallax-layer-3');
+        const depthLayerFar = document.querySelectorAll('.depth-layer-far');
+        const depthLayerMid = document.querySelectorAll('.depth-layer-mid');
+        const depthLayerNear = document.querySelectorAll('.depth-layer-near');
+        let ticking = false;
+        let lastScrollY = 0;
+        const scrollThreshold = 1; // Reduced threshold for smoother updates
+        
+        // Add smooth transitions to parallax elements
+        [spinningSun, ...parallaxLayer1, ...parallaxLayer2, ...parallaxLayer3, 
+         ...depthLayerFar, ...depthLayerMid, ...depthLayerNear].forEach(el => {
+            if (el) {
+                el.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease-out, filter 0.3s ease-out';
+            }
+        });
+
+        window.addEventListener('scroll', function() {
+            const currentScrollY = window.pageYOffset;
+            if (!ticking && Math.abs(currentScrollY - lastScrollY) > scrollThreshold) {
+                lastScrollY = currentScrollY;
+                window.requestAnimationFrame(function() {
+                    const scrolled = window.pageYOffset;
+                    const maxScroll = document.body.offsetHeight - window.innerHeight;
+                    const scrollPercent = Math.min(scrolled / maxScroll, 1);
+                    const sunParallaxSpeed = 0.3;
+                    const sunRotationSpeed = 0.5;
+                    
+                    // Animate sun with depth fade
+                    if (spinningSun) {
+                        const yOffset = scrolled * sunParallaxSpeed;
+                        const rotation = scrolled * sunRotationSpeed;
+                        const fadeOpacity = Math.max(0.05, 0.1 - (scrollPercent * 0.05));
+                        spinningSun.style.transform = `translateY(${yOffset}px) rotate(${rotation}deg)`;
+                        spinningSun.style.opacity = fadeOpacity;
+                    }
+                    
+                    // Parallax Layer 1 (slowest, far depth) - with fade and blur
+                    parallaxLayer1.forEach((el, index) => {
+                        const baseSpeed = 0.15;
+                        const yOffset = scrolled * baseSpeed;
+                        const currentTransform = el.style.animation ? '' : `translateY(${yOffset}px)`;
+                        const baseOpacity = parseFloat(getComputedStyle(el).opacity) || 0.3;
+                        const fadeAmount = Math.max(0.1, baseOpacity - (scrollPercent * 0.15));
+                        const blurAmount = 2 + (scrollPercent * 3);
+                        
+                        if (!el.style.animation) {
+                            el.style.transform = currentTransform;
+                        }
+                        el.style.opacity = fadeAmount;
+                        el.style.filter = `blur(${blurAmount}px)`;
+                    });
+                    
+                    // Parallax Layer 2 (medium speed, mid depth)
+                    parallaxLayer2.forEach(el => {
+                        const baseSpeed = 0.25;
+                        const yOffset = scrolled * baseSpeed;
+                        const baseOpacity = parseFloat(getComputedStyle(el).opacity) || 0.2;
+                        const fadeAmount = Math.max(0.08, baseOpacity - (scrollPercent * 0.1));
+                        const blurAmount = 3 + (scrollPercent * 2);
+                        
+                        if (!el.style.animation) {
+                            el.style.transform = `translateY(${yOffset}px)`;
+                        }
+                        el.style.opacity = fadeAmount;
+                        el.style.filter = `blur(${blurAmount}px)`;
+                    });
+                    
+                    // Parallax Layer 3 (fastest, near depth)
+                    parallaxLayer3.forEach(el => {
+                        const baseSpeed = 0.35;
+                        const yOffset = scrolled * baseSpeed;
+                        const baseOpacity = parseFloat(getComputedStyle(el).opacity) || 0.15;
+                        const fadeAmount = Math.max(0.05, baseOpacity - (scrollPercent * 0.08));
+                        const blurAmount = 2 + (scrollPercent * 1.5);
+                        
+                        if (!el.style.animation) {
+                            el.style.transform = `translateY(${yOffset}px)`;
+                        }
+                        el.style.opacity = fadeAmount;
+                        el.style.filter = `blur(${blurAmount}px)`;
+                    });
+                    
+                    // Apply depth-based transformations with scroll
+                    depthLayerFar.forEach(el => {
+                        const rotationY = scrollPercent * 5;
+                        el.style.transform = `translateZ(-400px) scale(1.4) rotateY(${rotationY}deg)`;
+                    });
+                    
+                    depthLayerMid.forEach(el => {
+                        const rotationY = scrollPercent * 3;
+                        el.style.transform = `translateZ(-200px) scale(1.2) rotateY(${rotationY}deg)`;
+                    });
+                    
+                    depthLayerNear.forEach(el => {
+                        const rotationY = scrollPercent * 1.5;
+                        el.style.transform = `translateZ(-80px) scale(1.08) rotateY(${rotationY}deg)`;
+                    });
+                    
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Intersection Observer for scroll animations - Optimized
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        // Reduce observers by using a single observer for multiple element types
+        const allAnimatedElements = [
+            ...document.querySelectorAll('.animate-on-scroll'),
+            ...document.querySelectorAll('.stagger-item')
+        ];
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Unobserve after animation to improve performance
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements with a single observer
+        allAnimatedElements.forEach(el => observer.observe(el));
+
+        // Smooth scroll for Learn More button
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Learn More')) {
+                button.addEventListener('click', function() {
+                    const conceptSection = document.querySelector('section:nth-of-type(2)');
+                    if (conceptSection) {
+                        conceptSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+        });
+
+        // Initialize EmailJS
+        (function() {
+            // EmailJS v4 initialization
+            emailjs.init('CRY9t7KxoT1lJ5RjG');
+        })();
+
+        // Handle hypothesis form submission
+        const hypothesisForm = document.getElementById('hypothesisForm');
+        const submissionMessage = document.getElementById('submissionMessage');
+        
+        if (hypothesisForm) {
+            hypothesisForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(hypothesisForm);
+                const data = {
+                    question1: formData.get('question1'),
+                    question1optional: formData.get('question1optional'),
+                    question2: formData.get('question2'),
+                    question2optional: formData.get('question2optional'),
+                    contactName: formData.get('contactName'),
+                    contactEmail: formData.get('contactEmail'),
+                    contactPhone: formData.get('contactPhone'),
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Prepare EmailJS template parameters
+                const templateParams = {
+                    name: data.contactName || 'Anonymous',
+                    q1_answer: data.question1 || 'Not answered',
+                    q1_optional: data.question1optional || 'Not provided',
+                    q2_answer: data.question2 || 'Not answered',
+                    q2_optional: data.question2optional || 'Not provided',
+                    contact_name: data.contactName || 'Not provided',
+                    contact_email: data.contactEmail || 'Not provided',
+                    contact_phone: data.contactPhone || 'Not provided'
+                };
+                
+                // Disable submit button to prevent multiple submissions
+                const submitButton = hypothesisForm.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.innerHTML;
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<span class="relative z-10 flex items-center justify-center gap-2"><svg class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Sending...</span>';
+                
+                // Send email using EmailJS
+                console.log('Sending email with params:', templateParams);
+                emailjs.send('service_xzqkq4x', 'template_o6x77ne', templateParams)
+                    .then(function(response) {
+                        console.log('Email sent successfully!', response.status, response.text);
+                        
+                        // Store in localStorage for backup
+                        const submissions = JSON.parse(localStorage.getItem('hypothesisSubmissions') || '[]');
+                        submissions.push(data);
+                        localStorage.setItem('hypothesisSubmissions', JSON.stringify(submissions));
+                        
+                        // Show success message with animation
+                        submissionMessage.classList.remove('hidden');
+                        submissionMessage.style.animation = 'fadeInUp 0.5s ease-out';
+                        
+                        // Show toast notification
+                        showToast('🌞 Thank you! Your thoughts have been submitted successfully.');
+                        
+                        hypothesisForm.reset();
+                        
+                        // Scroll to message
+                        submissionMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        
+                        // Hide message after 5 seconds
+                        setTimeout(() => {
+                            submissionMessage.style.animation = 'fadeInUp 0.3s ease-out reverse';
+                            setTimeout(() => {
+                                submissionMessage.classList.add('hidden');
+                            }, 300);
+                        }, 5000);
+                        
+                        // Re-enable submit button
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = originalButtonText;
+                    }, function(error) {
+                        console.error('Failed to send email. Error details:', error);
+                        console.error('Error text:', error.text);
+                        console.error('Error status:', error.status);
+                        
+                        // Show detailed error toast
+                        const errorMsg = error.text || 'Unknown error occurred';
+                        showToast(`⚠️ Error: ${errorMsg}. Please check console for details.`);
+                        
+                        // Re-enable submit button
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = originalButtonText;
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
