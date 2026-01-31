@@ -1224,7 +1224,7 @@
                     <a href="#donate" class="px-8 py-3 bg-gradient-to-r from-rose-500 to-orange-500 hover:from-rose-600 hover:to-orange-600 text-white rounded-full font-semibold shadow-lg shadow-rose-500/30 transition-all hover:shadow-xl hover:shadow-rose-500/40 hover:scale-105">
                         DONATE
                     </a>
-                    <a href="#survey" class="px-8 py-3 bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white rounded-full font-semibold shadow-lg shadow-teal-500/30 transition-all hover:shadow-xl hover:shadow-teal-500/40 hover:scale-105">
+                    <a href="#survey" onclick="scrollToSurveyAndExpand(event)" class="px-8 py-3 bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white rounded-full font-semibold shadow-lg shadow-teal-500/30 transition-all hover:shadow-xl hover:shadow-teal-500/40 hover:scale-105">
                         SHARE YOUR THOUGHTS
                     </a>
                 </div>
@@ -1237,7 +1237,7 @@
         <div class="max-w-2xl mx-auto">
             <!-- Archives Section Title -->
             <div class="animate-on-scroll fade-in-up text-center mb-12">
-                <h2 class="text-amber-600 mb-4 text-4xl md:text-5xl font-bold">Archives</h2>
+                <h2 class="text-amber-600 mb-4 text-4xl md:text-5xl font-bold animate-on-scroll fade-in-up relative overflow-hidden" style="background: linear-gradient(90deg, #d97706 0%, #f59e0b 25%, #fbbf24 50%, #f59e0b 75%, #d97706 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 8s ease-in-out infinite;">Archives</h2>
             </div>
             
             <div class="animate-on-scroll fade-in-scale rounded-2xl overflow-hidden border border-amber-200 shadow-xl">
@@ -1292,10 +1292,7 @@
                 </div>
             </div>
 
-            <h2 class="text-2xl md:text-3xl font-bold text-amber-600 text-center mt-6 mb-4 animate-on-scroll fade-in-up relative overflow-hidden" style="background: linear-gradient(90deg, #d97706 0%, #f59e0b 25%, #fbbf24 50%, #f59e0b 75%, #d97706 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 8s ease-in-out infinite;">
-                Jocelyn Scott tells Hampton City Council about Hello Sunshine
-            </h2>
-            <div class="animate-on-scroll fade-in-scale rounded-2xl overflow-hidden border border-amber-200 shadow-xl">
+            <div class="animate-on-scroll fade-in-scale rounded-2xl overflow-hidden border border-amber-200 shadow-xl mt-6">
                 <div class="scripps_iframe_embed" style="position:relative"><div style="display:block;width:100%;height:auto;padding-bottom:42%;"></div><iframe id="da-iframe" allowfullscale="" style="position:absolute;top:0;left:0;width:100%;height:100%;" border="0" height="100%" frameborder="0" webkitallowfullscreen="" allowfullscreen="" mozallowfullscreen="" scrolling="no" src="https://assets.scrippsdigital.com/cms/video/player.html?video=https://content.uplynk.com/4594ec61fccd48de865f070e84b2ad1c.m3u8&mp4=https://cf.cdn.uplynk.com/ause1/slices/459/dbe20997a7104511baed3a1f2e443baf/4594ec61fccd48de865f070e84b2ad1c/4594ec61fccd48de865f070e84b2ad1c_e.mp4&autoplay=false&purl=/news/in-the-community/norfolk/new-program-pairs-seniors-young-adults-in-hampton-roads-to-help-combat-loneliness-and-isolation&ads.iu=/6088/ssp.wtkr/news/in-the-community/norfolk/new-program-pairs-seniors-young-adults-in-hampton-roads-to-help-combat-loneliness-and-isolation&ads.proxy=1&poster=https://cf.cdn.uplynk.com/ause1/slices/459/dbe20997a7104511baed3a1f2e443baf/4594ec61fccd48de865f070e84b2ad1c/poster_12c1283063714d3b95ffaf912869d33d.jpg&title=Jocelyn%20Scott%20tells%20Hampton%20City%20Council%20about%20Hello%20Sunshine&kw=%2Cnews&contplay=*recent&mute=0&tags=Homepage%2CHomepage%20Showcase%2CNews%2CHampton%2CNorfolk&section=Norfolk&cust_params=temp%3D%26weather%3D&host=wtkr.com&s=wtkr&env=production&ex=1" allow="autoplay; fullscreen"></iframe></div>
             </div>
             <p class="text-xs text-zinc-400 text-right mt-2 italic">WTKR - News 3</p>
@@ -1363,6 +1360,31 @@
                                 aria-label="Optional explanation about your belief on reducing loneliness through intergenerational connections"
                                 class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all resize-none bg-white/50 backdrop-blur-sm hover:bg-white"
                             ></textarea>
+                        </div>
+                        
+                        <!-- Want to Share More Button and Expandable Section -->
+                        <div class="mt-4">
+                            <button 
+                                type="button"
+                                id="shareMoreBtn"
+                                onclick="toggleShareMore()"
+                                class="text-sm px-4 py-2 bg-amber-100 text-amber-700 rounded-lg hover:bg-amber-200 transition-colors duration-200 font-medium shadow-sm"
+                            >
+                                Want to share more? ▼
+                            </button>
+                            
+                            <div id="shareMoreContent" class="hidden mt-4 p-4 bg-white/70 backdrop-blur-sm border border-amber-200 rounded-xl space-y-3">
+                                <p class="text-amber-700 font-semibold">We'd love to hear more about your thoughts!</p>
+                                <p class="text-zinc-600 text-sm">Please share what you think about the Hello Sunshine Project and how bringing generations together can make a difference in our communities.</p>
+                                <textarea 
+                                    id="additionalThoughts" 
+                                    name="additionalThoughts"
+                                    rows="4"
+                                    placeholder="Share your additional thoughts about this project..."
+                                    aria-label="Additional thoughts about the Hello Sunshine Project"
+                                    class="w-full px-4 py-3 rounded-xl border border-zinc-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 outline-none transition-all resize-none bg-white hover:bg-white"
+                                ></textarea>
+                            </div>
                         </div>
                     </fieldset>
                     
@@ -1532,6 +1554,41 @@
             } else {
                 content.classList.add('hidden');
                 btnText.textContent = 'Read More';
+            }
+        }
+        
+        // Toggle Share More Section
+        function toggleShareMore() {
+            const content = document.getElementById('shareMoreContent');
+            const btn = document.getElementById('shareMoreBtn');
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                btn.innerHTML = 'Want to share more? ▲';
+            } else {
+                content.classList.add('hidden');
+                btn.innerHTML = 'Want to share more? ▼';
+            }
+        }
+        
+        // Scroll to survey and expand the share more section
+        function scrollToSurveyAndExpand(event) {
+            event.preventDefault();
+            const surveySection = document.getElementById('survey');
+            const shareMoreContent = document.getElementById('shareMoreContent');
+            const shareMoreBtn = document.getElementById('shareMoreBtn');
+            
+            if (surveySection) {
+                // Scroll to survey section with center alignment to bring it a bit lower
+                surveySection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Wait for scroll to complete, then expand the section
+                setTimeout(() => {
+                    if (shareMoreContent && shareMoreContent.classList.contains('hidden')) {
+                        shareMoreContent.classList.remove('hidden');
+                        shareMoreBtn.innerHTML = 'Want to share more? ▲';
+                    }
+                }, 800);
             }
         }
         
@@ -1775,6 +1832,7 @@
                     question1optional: formData.get('question1optional'),
                     question2: formData.get('question2'),
                     question2optional: formData.get('question2optional'),
+                    additionalThoughts: formData.get('additionalThoughts'),
                     contactName: formData.get('contactName'),
                     contactEmail: formData.get('contactEmail'),
                     contactPhone: formData.get('contactPhone'),
@@ -1788,6 +1846,7 @@
                     q1_optional: data.question1optional || 'Not provided',
                     q2_answer: data.question2 || 'Not answered',
                     q2_optional: data.question2optional || 'Not provided',
+                    q3_optional: data.additionalThoughts || 'Not provided',
                     contact_name: data.contactName || 'Not provided',
                     contact_email: data.contactEmail || 'Not provided',
                     contact_phone: data.contactPhone || 'Not provided'
