@@ -255,15 +255,6 @@
             }
         }
 
-        @keyframes pulseGlow {
-            0%, 100% {
-                box-shadow: 0 0 0 0 rgba(251, 191, 36, 0);
-            }
-            50% {
-                box-shadow: 0 0 20px 5px rgba(251, 191, 36, 0.3);
-            }
-        }
-
         @keyframes slideDown {
             from {
                 transform: translateY(-100%);
@@ -487,8 +478,13 @@
             transition: transform 0.3s ease;
         }
 
-        .bullet-item.animate-in .bullet-dot {
-            animation: pulseGlow 2s ease-in-out infinite;
+        .bullet-item strong {
+            background: linear-gradient(90deg, #d97706 0%, #f59e0b 25%, #fbbf24 50%, #f59e0b 75%, #d97706 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 8s ease-in-out infinite;
         }
 
         .bullet-item:hover .bullet-dot {
