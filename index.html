@@ -1942,6 +1942,7 @@
                     contactName: formData.get('contactName'),
                     contactEmail: formData.get('contactEmail'),
                     contactPhone: formData.get('contactPhone'),
+                    donationInterest: formData.get('donationInterest') === 'on' ? 'Yes' : 'No',
                     timestamp: new Date().toISOString()
                 };
                 
@@ -1955,7 +1956,8 @@
                     q3_optional: data.additionalThoughts || 'Not provided',
                     contact_name: data.contactName || 'Not provided',
                     contact_email: data.contactEmail || 'Not provided',
-                    contact_phone: data.contactPhone || 'Not provided'
+                    contact_phone: data.contactPhone || 'Not provided',
+                    donation_interest: data.donationInterest
                 };
                 
                 // Disable submit button to prevent multiple submissions
